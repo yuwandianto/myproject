@@ -9,8 +9,10 @@ class Home extends CI_Controller
 		parent::__construct();
 		$this->load->model('M_admin_home', 'm');
 	}
+
 	public function index()
 	{
+		must_admin();
 		$data['title'] = 'Halaman Admin';
 		$data['total_siswa'] = $this->m->hitungjumlahsiswa();
 		
@@ -23,6 +25,7 @@ class Home extends CI_Controller
 
 	public function Dashboard()
 	{
+		must_admin();
 		$data['title'] = 'Dashboard';
 		$this->load->view('back/header', $data);
 		$this->load->view('back/sidebar');

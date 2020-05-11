@@ -28,4 +28,26 @@ function is_login_siswa() {
      }
  }
 
+ /**
+ * cek login admin
+ */
+function is_login_admin() {
+    error_reporting(0);
+
+    if ($_SESSION['id']) {
+        return true;
+    }
+    return false;
+}
+
+/**
+ * harus login sebagai admin
+ */
+
+function must_admin() {
+    if (! is_login_admin()) {
+        redirect('','refresh');
+    }
+}
+
  
