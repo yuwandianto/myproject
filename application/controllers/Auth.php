@@ -147,7 +147,62 @@ class Auth extends CI_Controller
 
     public function login_admin() 
     {
-        $this->load->view('back/login_admin');
+
+        $this->form_validation->set_rules('username', 'Username', 'trim|required');
+        $this->form_validation->set_rules('pass', 'Password', 'trim|required');
+
+        
+        if ($this->form_validation->run() == FALSE) {
+            # code...
+            $this->load->view('back/login_admin');
+        } else {
+            # code...
+            $this->login_admin_();
+        }
+
+    }
+
+    private function login_admin_()
+    {
+        $user = $this->input->post('username', true);
+        $pass = $this->input->post('pass', true);
+
+        $q = $this->db->get_where('tbl_pengguna', ['xemail' => $user])->row_array();
+        
+        if ($q) {
+            # jika email ditemukan...
+            if (password_verify($pass, $q['xpass'])) {
+                # jika password cocok...
+                
+                $array = array(
+                    'id' => $q['xid']
+                );
+                
+                $this->session->set_userdata( $array );
+                
+                redirect('home','refresh');
+                
+                
+            } else {
+                # jika password tidak cocok...
+                $this->session->set_flashdata('error', 'Email atau password salah');
+                redirect('login-admin','refresh');
+            }
+            
+        } else {
+            # jika email tidak ada...
+            $this->session->set_flashdata('error', 'Email atau password salah');
+            redirect('login-admin','refresh');
+        }
+        
+    }
+
+    public function logout()
+    {
+        
+        $this->session->sess_destroy();
+        
+        redirect('','refresh');
         
     }
 

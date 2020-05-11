@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Login</title>
+  <title>Login | Administrator</title>
 
   <!-- Custom fonts for this template-->
   <link href="<?= base_url('assets/templates/back/');?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -32,6 +32,8 @@
 </head>
 
 <body class="bg-gradient-primary">
+<div class="flash_data" data-flash_data="<?= $this->session->flashdata('error');?>"></div>
+
 
   <div class="container">
 
@@ -84,6 +86,8 @@
 
   <!-- Custom scripts for all pages-->
   <script src="<?= base_url('assets/templates/back/');?>js/sb-admin-2.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
 
   <script type="text/javascript">
     $(document).ready(function(){       
@@ -95,6 +99,19 @@
             }
         });
     });
+</script>
+<script>
+  $(document).ready(function() {
+      const flash_data = $('.flash_data').data('flash_data');
+      
+      if (flash_data) {
+      Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: flash_data,
+          })
+      }
+  })
 </script>
 
 </body>
