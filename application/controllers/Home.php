@@ -16,7 +16,17 @@ class Home extends CI_Controller
 		$this->load->view('back/header', $data);
 		$this->load->view('back/sidebar');
 		$this->load->view('back/topbar');
-		$this->load->view('back/dashboard_admin');
+		$this->load->view('back/home');
+		$this->load->view('back/footer');
+	}
+
+	public function Dashboard()
+	{
+		$data['title'] = 'Dashboard';
+		$this->load->view('back/header', $data);
+		$this->load->view('back/sidebar');
+		$this->load->view('back/topbar');
+		$this->load->view('back/dashboard');
 		$this->load->view('back/footer');
 	}
 }
