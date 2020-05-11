@@ -19,10 +19,9 @@ class Auth extends CI_Controller
             'numeric'      => 'NISN harus berupa angka',
             'is_unique'     => 'NISN sudah terdaftar'
         ]);
-        $this->form_validation->set_rules('nama', 'nama', 'trim|required');
-        $this->form_validation->set_rules('tempat_lahir', 'tempat lahir', 'trim|required');
-        $this->form_validation->set_rules('tgl_lahir', 'tempat lahir', 'trim|required');
-        $this->form_validation->set_rules('tgl_lahir', 'tempat lahir', 'trim|required');
+        $this->form_validation->set_rules('nama', 'Nama', 'trim|required');
+        $this->form_validation->set_rules('tempat_lahir', 'Tempat lahir', 'trim|required');
+        $this->form_validation->set_rules('tgl_lahir', 'Tanggal Lahir', 'trim|required');
 
 
         if ($this->form_validation->run() == FALSE) {
@@ -59,9 +58,15 @@ class Auth extends CI_Controller
             # jika kode validasi benar lakukan input data...
             $this->session->unset_userdata('key');
 
-            $data = [];
+            $data = [
+                "nisn" => $this->input->post('nisn'),
+                "nama" => $this->input->post('nama'),
+                "tempat_lahir" => $this->input->post('tempat_lahir'),
+                "tgl_lahir" => $this->input->post('tgl_lahir'),
+            ];
 
-            echo 'proses input data';
+            $this->db->insert('tbl_registrasi', $data);
+            redirect('auth/login');
         } else {
             # jika kode validasi salah tampilkan pesan error...
             $this->session->set_flashdata('error', 'Validasi salah');
