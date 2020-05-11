@@ -1,7 +1,7 @@
-<?php
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class M_admin_home extends CI_Model
-{
+class M_admin_home extends CI_Model {
+    
     public function hitungjumlahsiswa()
     {
         $query = $this->db->get('tbl_registrasi');
@@ -11,4 +11,9 @@ class M_admin_home extends CI_Model
             return 0;
         }
     }
+    
+
 }
+
+/* End of file M_admin_home.php */
+

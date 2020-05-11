@@ -146,6 +146,17 @@ class Auth extends CI_Controller
             redirect('auth/login', 'refresh');
         }
     }
+
+
+    public function login_admin() 
+    {
+        $this->load->view('back/login_admin');
+        
+    }
+
+
+
+
 }
 
 /* End of file Auth.php */
