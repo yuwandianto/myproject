@@ -104,3 +104,4 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+application/config/database.php
