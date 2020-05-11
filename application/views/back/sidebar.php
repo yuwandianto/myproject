@@ -1,6 +1,5 @@
-<?php 
-  $menu = $this->uri->segment(2);
-;?>
+<?php
+$menu = $this->uri->segment(2);; ?>
 
 <!-- Sidebar -->
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
@@ -20,8 +19,10 @@
   </div>
 
   <!-- Nav Item - Dashboard -->
-  <li class="nav-item <?php if ($menu == '') { echo 'active'; } ?>">
-    <a class="nav-link" href="<?= base_url('home');?>">
+  <li class="nav-item <?php if ($menu == '') {
+                        echo 'active';
+                      } ?>">
+    <a class="nav-link" href="<?= base_url('home'); ?>">
       <i class="fas fa-fw fa-tachometer-alt"></i>
       <span>Dashboard</span></a>
   </li>
@@ -38,9 +39,9 @@
 
   <!-- Nav Item - Tables -->
   <li class="nav-item">
-    <a class="nav-link" href="tables.html">
-      <i class="fas fa-fw fa-table"></i>
-      <span>Tables</span></a>
+    <a class="nav-link" href="<?php echo base_url('home/dashboard') ?>">
+      <i class="fas fa-fw fa-user-cog"></i>
+      <span>Setting</span></a>
   </li>
 
   <!-- Divider -->
