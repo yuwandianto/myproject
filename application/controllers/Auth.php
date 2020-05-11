@@ -80,7 +80,7 @@ class Auth extends CI_Controller
         $this->form_validation->set_rules('username', 'Username', 'trim|required');
         $this->form_validation->set_rules('password', 'Password', 'trim|required');
 
-        
+
         if ($this->form_validation->run() == FALSE) {
             # code...
             $a = rand(1, 9);
@@ -98,7 +98,7 @@ class Auth extends CI_Controller
 
             $this->load->view('front/login', $data);
         } else {
-           $this->login_siswa();
+            $this->login_siswa();
         }
     }
 
@@ -108,38 +108,35 @@ class Auth extends CI_Controller
         $password = $this->input->post('password', true);
         $validasi = $this->input->post('validasi', true);
 
-        
+
         if ($validasi == $this->session->userdata('key')) {
             # jika kode validasi benar lakukan input data...
             $this->session->unset_userdata('key');
-            
+
             $query = $this->db->get_where('tbl_registrasi', ['nisn' => $username])->row_array();
-            
-            if ($query ) {
+
+            if ($query) {
                 # jika nisn ditemukan...
                 if (password_verify($password, $query['pass'])) {
                     # jika password benar...
-                    
+
                     $array = array(
                         'nisn' => $username
                     );
-                    
-                    $this->session->set_userdata( $array );
-                    
-                    redirect('siswa','refresh');
-                    
+
+                    $this->session->set_userdata($array);
+
+                    redirect('siswa', 'refresh');
                 } else {
                     # jika password salah...
                     $this->session->set_flashdata('error', 'NISN atau Password tidak ditemukan');
                     redirect('auth/login', 'refresh');
                 }
-                
             } else {
                 # jika nisn tidak ditemukan/salah...
                 $this->session->set_flashdata('error', 'NISN tidak terdaftar');
                 redirect('auth/login', 'refresh');
             }
-            
         } else {
             # jika kode validasi salah tampilkan pesan error...
             $this->session->set_flashdata('error', 'Validasi salah');
