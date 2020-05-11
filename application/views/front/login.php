@@ -80,8 +80,7 @@
                         </div>
                         <div class="text-center misc-footer">
                             <p class="small">
-                                Copyright &copy; 2020 | Penerimaan Peserta Didik Baru <hr>
-                                <?= password_hash('password', PASSWORD_DEFAULT) ?>
+                                Copyright &copy; 2020 | Penerimaan Peserta Didik Baru 
                             </p>
                         </div>
                     </div>
