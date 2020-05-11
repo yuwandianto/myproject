@@ -252,96 +252,98 @@
 </section>
 <!-- clients end -->
 <!-- features start -->
-<section class="section bg-light pt-2" id="jadwal">
-    <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-lg-6">
-                <div class="text-center mb-4 pb-1">
-                    <h2 class="mb-3">Jadwal Penerimaan Peserta Didik
-                    </h2>
-                    <p class="text-muted">Tanggal penting jadwal pendaftaran dan penutupan Penerimaan Peserta Didik Tahun 2020
-                    </p>
+<?php foreach ($judul as $jdl) : ?>
+    <section class="section bg-light pt-2" id="jadwal">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="text-center mb-4 pb-1">
+                        <h2 class="mb-3"><?php echo $jdl['judul1']; ?>
+                        </h2>
+                        <p class="text-muted">Tanggal penting jadwal pendaftaran dan penutupan Penerimaan Peserta Didik Tahun 2020
+                        </p>
 
-                </div>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-lg-7">
-                <div class="text-center">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>#
-                                    </th>
-                                    <th>Kegiatan
-                                    </th>
-                                    <th>Dibuka
-                                    </th>
-                                    <th>Ditutup
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                                <tr>
-                                    <td>
-                                        1
-                                    </td>
-                                    <td class="pl-sm-0 pl-md-5" style="text-align:left;">
-                                        Pendaftaran Akun Siswa
-                                    </td>
-                                    <td>
-                                        26 Februari 2020
-                                    </td>
-                                    <td>
-                                        31 Oktober 2020
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>
-                                        2
-                                    </td>
-                                    <td class="pl-sm-0 pl-md-5" style="text-align:left;">
-                                        SNMPTN
-                                    </td>
-                                    <td>
-                                        02 Maret 2020
-                                    </td>
-                                    <td>
-                                        31 Maret 2020
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>
-                                        3
-                                    </td>
-                                    <td class="pl-sm-0 pl-md-5" style="text-align:left;">
-                                        SNMPN
-                                    </td>
-                                    <td>
-                                        25 Februari 2020
-                                    </td>
-                                    <td>
-                                        13 Maret 2020
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
                     </div>
                 </div>
-                <span>
-                    <b>Keterangan:
-                    </b>
-                    <br> Jadwal dapat berubah sewaktu-waktu
-                </span>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="text-center">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>#
+                                        </th>
+                                        <th>Kegiatan
+                                        </th>
+                                        <th>Dibuka
+                                        </th>
+                                        <th>Ditutup
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td class="pl-sm-0 pl-md-5" style="text-align:left;">
+                                            Pendaftaran Akun Siswa
+                                        </td>
+                                        <td>
+                                            26 Februari 2020
+                                        </td>
+                                        <td>
+                                            31 Oktober 2020
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            2
+                                        </td>
+                                        <td class="pl-sm-0 pl-md-5" style="text-align:left;">
+                                            SNMPTN
+                                        </td>
+                                        <td>
+                                            02 Maret 2020
+                                        </td>
+                                        <td>
+                                            31 Maret 2020
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            3
+                                        </td>
+                                        <td class="pl-sm-0 pl-md-5" style="text-align:left;">
+                                            SNMPN
+                                        </td>
+                                        <td>
+                                            25 Februari 2020
+                                        </td>
+                                        <td>
+                                            13 Maret 2020
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <span>
+                        <b>Keterangan:
+                        </b>
+                        <br> Jadwal dapat berubah sewaktu-waktu
+                    </span>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- end container-fluid -->
-</section>
+        <!-- end container-fluid -->
+    </section>
+<?php endforeach; ?>
 <!-- features end -->
 <!-- available demos start -->
 <section class="section bg-light" id="berita">
