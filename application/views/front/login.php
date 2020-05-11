@@ -15,9 +15,10 @@
 
     <script src="<?= base_url('assets/templates/front/'); ?>js/jquery.min.js"></script>
 
-    <link href="<?= base_url('assets/templates/front/'); ?>css/icons.css" rel="stylesheet">
+
 
 </head>
+<div class="flash_data" data-flash_data="<?= $this->session->flashdata('error');?>"></div>
 
 <body class="bg-light" style="height: auto;background-image:url(<?= base_url('assets/templates/front/'); ?>img/bg-3.jpg);">
     <div id="app" class="misc-wrapper">
@@ -33,18 +34,18 @@
                     </div>
                     <div class="col-md-6 col-xs-12">
                         <div class="misc-box">
-                            <form id="main-form" role="form" method="POST" action="<?= base_url('assets/templates/front/'); ?>siswa/auth/login">
-                                <input type="hidden" name="_token" value="TfJocSVsNWexYkZykdGKFNETBWgfhhwgDKRHCJNu">
+                            <form id="main-form" role="form" method="POST" action="<?= base_url('auth/login'); ?>">
+
                                 <div class="form-group">
-                                    <label for="nisn">NISN</label>
+                                    <label for="username">NISN</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1"><i class="fa fa-check-square"></i> </span>
                                         </div>
-                                        <input id="nisn" name="nisn" type="text" value="" placeholder="Nomor Induk Siswa Nasional" class="form-control " required>
-                                        <!--<span class="icon-user text-muted icon-input"></span>-->
+                                        <input id="username" name="username" type="text" value="" placeholder="Nomor Induk Siswa Nasional" class="form-control " required>
                                     </div>
                                 </div>
+
                                 <div class="form-group">
                                     <label for="password">PASSWORD</label>
                                     <div class="input-group" id="show_hide_password">
@@ -57,6 +58,17 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="form-group">
+                                    <label for="nisn">VALIDASI</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-key"></i></span>
+                                        </div>
+                                        <input id="validasi" name="validasi" type="number" value="" placeholder="<?= $a . ' + ' . $b . ' = ....'; ?>" class="form-control" required>
+                                    </div>
+                                </div>
+
                                 <div class="clearfix">
                                     <div class="text-center">
                                         <button type="submit" class="btn btn-flat btn-primary btn-block"><i class="fa fa-sign-in"></i> Masuk</button>
@@ -68,7 +80,8 @@
                         </div>
                         <div class="text-center misc-footer">
                             <p class="small">
-                                Copyright &copy; 2020 | Penerimaan Peserta Didik Baru
+                                Copyright &copy; 2020 | Penerimaan Peserta Didik Baru <hr>
+                                <?= password_hash('password', PASSWORD_DEFAULT) ?>
                             </p>
                         </div>
                     </div>
@@ -81,27 +94,12 @@
     </script>
     <script src="<?= base_url('assets/templates/front/'); ?>js/bootstrap.min.js">
     </script>
-    <script src="<?= base_url('assets/templates/front/'); ?>js/ace-responsive-menu-min.js">
-    </script>
-    <script src="<?= base_url('assets/templates/front/'); ?>js/pace.min.js">
-    </script>
-    <script src="<?= base_url('assets/templates/front/'); ?>js/jasny-bootstrap.min.js">
-    </script>
-    <script src="<?= base_url('assets/templates/front/'); ?>js/jquery.slimscroll.min.js">
-    </script>
-    <script src="<?= base_url('assets/templates/front/'); ?>js/jquery.nanoscroller.min.js">
-    </script>
-    <script src="<?= base_url('assets/templates/front/'); ?>js/metisMenu.min.js">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    
     </script>
     <!-- Scripts -->
-    <script src="" defer>
-    </script>
-    <script src="<?= base_url('assets/templates/front/'); ?>js/app.js"></script>
-    <script src="<?= base_url('assets/templates/front/'); ?>js/jquery.validate.min.js"></script>
-    <script src="<?= base_url('assets/templates/front/'); ?>js/select2.min.js"></script>
-    <script src="<?= base_url('assets/templates/front/'); ?>js/kipk.js"></script>
-    <script src="<?= base_url('assets/templates/front/'); ?>js/custom.js?v=1.1" defer></script>
-    <script src="<?= base_url('assets/templates/front/'); ?>js/sweetalert.all.js"></script>
+    
+    <!-- <script src="<?= base_url('assets/templates/front/'); ?>js/sweetalert.all.js"></script> -->
     <script>
         $(document).ready(function() {
             $("#show_hide_password button").on('click', function(event) {
@@ -118,6 +116,21 @@
             });
         });
     </script>
+
+    <script>
+        $(document).ready(function() {
+            const flash_data = $('.flash_data').data('flash_data');
+           
+            if (flash_data) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: flash_data,
+                })
+           }
+        })
+        </script>
+
 </body>
 
 </html>
