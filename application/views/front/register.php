@@ -33,42 +33,43 @@
                     <form id="main-form" role="form" method="POST" action="<?= base_url('auth/register');?>">
 
                         <div class="form-group">
-                            <label for="nisn">NISN <span class="text-danger"> *</span></label>
+                            <label for="nisn">NISN ( <span class="text-danger"> * </span>)</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon1"><i class="fa fa-check-square"></i></span>
                                 </div>
-                                <input id="nisn" name="nisn" type="text" value="" placeholder="Nomor Induk Siswa Nasional" class="form-control" required>
+                                <input id="nisn" name="nisn" type="text" value="<?= set_value('nisn') ;?>" placeholder="Nomor Induk Siswa Nasional" class="form-control" required>
                             </div>
+                                <small class="text-danger"><?= form_error('nisn') ;?></small>
                         </div>
 
                         <div class="form-group">
-                            <label for="nama">NAMA LENGKAP <span class="text-danger"> *</span></label>
+                            <label for="nama">NAMA LENGKAP ( <span class="text-danger"> * </span>)</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
                                 </div>
-                                <input id="nama" name="nama" type="text" value="" placeholder="Nama Lengkap Sesuai Ijazah Sebelumnya" class="form-control" required>
+                                <input id="nama" name="nama" type="text" value="<?= set_value('nama') ;?>" placeholder="Nama Lengkap Sesuai Ijazah Sebelumnya" class="form-control" required>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="tempat_lahir">TEMPAT LAHIR <span class="text-danger"> *</span></label>
+                            <label for="tempat_lahir">TEMPAT LAHIR ( <span class="text-danger"> * </span>)</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon1"><i class="fa fa-address-book"></i></span>
                                 </div>
-                                <input id="tempat_lahir" name="tempat_lahir" type="text" value="" placeholder="Tempat Lahir Sesuai Ijazah Sebelumnya" class="form-control" required>
+                                <input id="tempat_lahir" name="tempat_lahir" type="text" value="<?= set_value('tempat_lahir') ;?>" placeholder="Tempat Lahir Sesuai Ijazah Sebelumnya" class="form-control" required>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="nisn">TANGGAL LAHIR <span class="text-danger"> *</span></label>
+                            <label for="nisn">TANGGAL LAHIR ( <span class="text-danger"> * </span>)</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon1"><i class="fa fa-calendar-alt"></i></span>
                                 </div>
-                                <input type="date" name="tgl_lahir" id="tgl_lahir" class="form-control">
+                                <input type="date" name="tgl_lahir" id="tgl_lahir" class="form-control" value="<?= set_value('tgl_lahir') ;?>">
 
                                 <!-- <table>
                                     <tr>
@@ -94,12 +95,12 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="nisn">VALIDASI <span class="text-danger"> *</span></label>
+                            <label for="nisn">VALIDASI ( <span class="text-danger"> * </span>)</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon1"><i class="fa fa-key"></i></span>
                                 </div>
-                                <input id="nisn" name="nisn" type="text" value="" placeholder="" class="form-control" required>
+                                <input id="validasi" name="validasi" type="number" value="" placeholder="<?= $a.' + '.$b.' = ....' ;?>" class="form-control" required>
                             </div>
                         </div>
 
