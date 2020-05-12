@@ -18,7 +18,7 @@ class M_admin_home extends CI_Model
     }
     public function tampildata1()
     {
-        return $this->db->get('judul')->result_array();
+        return $this->db->get('tabel_jadwal')->result_array();
     }
 
     public function hapus_data($id)

@@ -24,7 +24,7 @@ class Home extends CI_Controller
 	public function Dashboard()
 	{
 		$data['jadwal'] = $this->M_admin_home->tampildata();
-		$data['judul'] = $this->M_admin_home->tampildata();
+		// $data['judul'] = $this->M_admin_home->tampildata();
 		$data['judul1'] = $this->M_admin_home->tampildata1();
 		$data['title'] = 'Dashboard';
 		$this->load->view('back/header', $data);

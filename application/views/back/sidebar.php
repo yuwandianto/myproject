@@ -46,7 +46,7 @@ $menu = $this->uri->segment(2);; ?>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Setting Dashboard:</h6>
-        <a class="collapse-item" href="<?php echo base_url('home/dashboard') ?>">Judul Setting</a>
+        <a class="collapse-item" href="<?php echo base_url('home/dashboard') ?>">Jadwal</a>
         <a class="collapse-item" href="cards.html">Cards</a>
       </div>
     </div>
