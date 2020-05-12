@@ -47,7 +47,7 @@ class M_admin_home extends CI_Model
     public function hapus_tabel($id)
     {
         $this->db->where('id', $id);
-        $this->db->delete('judul');
+        $this->db->delete('tabel_jadwal');
     }
 
     public function ambil_id_tabel($id)
@@ -65,5 +65,16 @@ class M_admin_home extends CI_Model
 
         $this->db->where('id', $this->input->post('id'));
         $this->db->update('tabel_jadwal', $data);
+    }
+
+    public function proses_tambah_tabel()
+    {
+        $data = [
+            "kegiatan" => $this->input->post('kegiatan', TRUE),
+            "dibuka" => $this->input->post('dibuka', TRUE),
+            "ditutup" => $this->input->post('ditutup', TRUE)
+        ];
+
+        $this->db->insert('tabel_jadwal', $data);
     }
 }
