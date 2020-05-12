@@ -25,8 +25,6 @@ $menu = $this->uri->segment(2);; ?>
       <span>Dashboard</span></a>
   </li>
 
-  
-
   <li class="nav-item <?php if ($menu == 'sekolah' || $menu == 'jadwal' || $menu == 'slider' || $menu == 'berita') { echo 'active'; } ?>">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
       <i class="fas fa-fw fa-wrench"></i>
