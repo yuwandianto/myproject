@@ -15,11 +15,7 @@
 
     <script src="<?= base_url('assets/templates/front/'); ?>js/jquery.min.js"></script>
 
-    <style>
-        body {
-            padding-top: 0px ;
-        }
-    </style>
+
 
 </head>
 <div class="flash_data" data-flash_data="<?= $this->session->flashdata('error');?>"></div>
@@ -39,7 +35,7 @@
                     <div class="col-md-6 col-xs-12">
                         <div class="misc-box">
                             <form id="main-form" role="form" method="POST" action="<?= base_url('auth/login'); ?>">
-                            <input type="hidden" name="<?= $this->security->get_csrf_token_name();?>" value="<?= $this->security->get_csrf_hash() ;?>" style="display:none">
+
                                 <div class="form-group">
                                     <label for="username">NISN</label>
                                     <div class="input-group">
