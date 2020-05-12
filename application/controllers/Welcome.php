@@ -12,7 +12,8 @@ class Welcome extends CI_Controller
 
 	public function index()
 	{
-		$data['judul'] = $this->M_dashboard->tampil_data();
+		$data['jadwal'] = $this->M_dashboard->tampil_data();
+		$data['j_tabel'] = $this->M_dashboard->tampil_data_tabel();
 		$data['title'] = 'PPDB';
 		$this->load->view('front/meta', $data);
 		$this->load->view('front/header');

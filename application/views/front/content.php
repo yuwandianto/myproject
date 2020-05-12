@@ -252,98 +252,70 @@
 </section>
 <!-- clients end -->
 <!-- features start -->
-<?php foreach ($judul as $jdl) : ?>
-    <section class="section bg-light pt-2" id="jadwal">
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="text-center mb-4 pb-1">
-                        <h2 class="mb-3"><?php echo $jdl['judul1']; ?>
-                        </h2>
-                        <p class="text-muted">Tanggal penting jadwal pendaftaran dan penutupan Penerimaan Peserta Didik Tahun 2020
-                        </p>
+<section class="section bg-light pt-2" id="jadwal">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="text-center mb-4 pb-1">
+                    <h2 class="mb-3"><?php echo $jadwal['nama_jadwal']; ?>
+                    </h2>
+                    <p class="text-muted"><?php echo $jadwal['title_jadwal'] ?>
+                    </p>
 
-                    </div>
                 </div>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-7">
-                    <div class="text-center">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>#
-                                        </th>
-                                        <th>Kegiatan
-                                        </th>
-                                        <th>Dibuka
-                                        </th>
-                                        <th>Ditutup
-                                        </th>
-                                    </tr>
-                                </thead>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="text-center">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#
+                                    </th>
+                                    <th>Kegiatan
+                                    </th>
+                                    <th>Dibuka
+                                    </th>
+                                    <th>Ditutup
+                                    </th>
+                                </tr>
+                            </thead>
+                            <?php
+                            $no = 1;
+                            foreach ($j_tabel as $j) : ?>
                                 <tbody>
 
                                     <tr>
                                         <td>
-                                            1
+                                            <?php echo $no++; ?>
                                         </td>
                                         <td class="pl-sm-0 pl-md-5" style="text-align:left;">
-                                            Pendaftaran Akun Siswa
+                                            <?php echo $j['kegiatan'] ?>
                                         </td>
                                         <td>
-                                            26 Februari 2020
+                                            <?php echo $j['dibuka'] ?>
                                         </td>
                                         <td>
-                                            31 Oktober 2020
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            2
-                                        </td>
-                                        <td class="pl-sm-0 pl-md-5" style="text-align:left;">
-                                            SNMPTN
-                                        </td>
-                                        <td>
-                                            02 Maret 2020
-                                        </td>
-                                        <td>
-                                            31 Maret 2020
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            3
-                                        </td>
-                                        <td class="pl-sm-0 pl-md-5" style="text-align:left;">
-                                            SNMPN
-                                        </td>
-                                        <td>
-                                            25 Februari 2020
-                                        </td>
-                                        <td>
-                                            13 Maret 2020
+                                            <?php echo $j['ditutup'] ?>
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table>
-                        </div>
+                            <?php endforeach; ?>
+                        </table>
                     </div>
-                    <span>
-                        <b>Keterangan:
-                        </b>
-                        <br> Jadwal dapat berubah sewaktu-waktu
-                    </span>
                 </div>
+                <span>
+                    <b>Keterangan:
+                    </b>
+                    <br> Jadwal dapat berubah sewaktu-waktu
+                </span>
             </div>
         </div>
-        <!-- end container-fluid -->
-    </section>
-<?php endforeach; ?>
+    </div>
+    <!-- end container-fluid -->
+</section>
 <!-- features end -->
 <!-- available demos start -->
 <section class="section bg-light" id="berita">
