@@ -27,7 +27,7 @@
     <br>
 
     <h3 class="mb-3">Setting Tabel Jadwal
-        <a href="<?php echo base_url('Home/proses_tambah') ?>" class="btn btn-primary float-right">Tambah</a>
+        <a href="<?php echo base_url('Home/tambah_tabel') ?>" class="btn btn-primary float-right">Tambah</a>
     </h3>
     <hr>
 

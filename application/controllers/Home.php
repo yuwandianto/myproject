@@ -24,7 +24,7 @@ class Home extends CI_Controller
 	public function Dashboard()
 	{
 		$data['jadwal'] = $this->M_admin_home->tampildata();
-		$data['judul'] = $this->M_admin_home->tampildata();
+		// $data['judul'] = $this->M_admin_home->tampildata();
 		$data['judul1'] = $this->M_admin_home->tampildata1();
 		$data['title'] = 'Dashboard';
 		$this->load->view('back/header', $data);
@@ -80,26 +80,19 @@ class Home extends CI_Controller
 		redirect('home/dashboard');
 	}
 
-	// public function hapus_tabel($id)
-	// {
-	// 	$this->M_admin_home->hapus_tabel($id);
-	// 	redirect('home/dashboard');
-	// }
+	public function tambah_tabel()
+	{
+		$data['title'] = 'Tambah tabel';
+		$this->load->view('back/header', $data);
+		$this->load->view('back/sidebar');
+		$this->load->view('back/topbar');
+		$this->load->view('back/jadwal/tambah_tabel', $data);
+		$this->load->view('back/footer');
+	}
 
-	// public function edit_tabel($id)
-	// {
-	// 	$data['judul'] = $this->M_admin_home->ambil_id_tabel($id);
-	// 	$data['title'] = 'Dashboard';
-	// 	$this->load->view('back/header', $data);
-	// 	$this->load->view('back/sidebar');
-	// 	$this->load->view('back/topbar');
-	// 	$this->load->view('back/jadwal/edit_tabel', $data);
-	// 	$this->load->view('back/footer');
-	// }
-
-	// public function proses_edit_tabel()
-	// {
-	// 	$this->M_admin_home->proses_edit_tabel();
-	// 	redirect('home/dashboard');
-	// }
+	public function proses_tambah_tabel()
+	{
+		$this->M_admin_home->proses_tambah_tabel();
+		redirect('home/dashboard');
+	}
 }

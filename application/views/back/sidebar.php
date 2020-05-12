@@ -32,11 +32,17 @@ $menu = $this->uri->segment(2);; ?>
     </a>
     <div id="collapseUtilities" class="collapse <?php if ($menu == 'sekolah' || $menu == 'jadwal' || $menu == 'slider' || $menu == 'berita') { echo 'show'; } ?>" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
+
         <h6 class="collapse-header">Menu Pengaturan:</h6>
         <a class="collapse-item <?php if ($menu == 'sekolah') { echo 'active';}?>" href="<?= base_url('home/sekolah');?>">Sekolah</a>
         <a class="collapse-item <?php if ($menu == 'jadwal') { echo 'active';}?>" href="<?= base_url('home/jadwal');?>">Jadwal</a>
         <a class="collapse-item <?php if ($menu == 'slider') { echo 'active';}?>" href="<?= base_url('home/slider');?>">SlideShow</a>
         <a class="collapse-item <?php if ($menu == 'berita') { echo 'active';}?>" href="<?= base_url('home/berita');?>">Berita dan Pengumuman</a>
+
+        <h6 class="collapse-header">Setting Dashboard:</h6>
+        <a class="collapse-item" href="<?php echo base_url('home/dashboard') ?>">Jadwal</a>
+        <a class="collapse-item" href="cards.html">Cards</a>
+
       </div>
     </div>
   </li>
