@@ -52,7 +52,7 @@ class M_admin_home extends CI_Model
 
     public function ambil_id_tabel($id)
     {
-        return $this->db->get_where('judul', ['id' => $id])->row_array();
+        return $this->db->get_where('tabel_jadwal', ['id' => $id])->row_array();
     }
 
     public function proses_edit_tabel()
@@ -64,6 +64,6 @@ class M_admin_home extends CI_Model
         ];
 
         $this->db->where('id', $this->input->post('id'));
-        $this->db->update('judul', $data);
+        $this->db->update('tabel_jadwal', $data);
     }
 }
