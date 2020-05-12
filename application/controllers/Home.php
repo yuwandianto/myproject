@@ -79,4 +79,18 @@ class Home extends CI_Controller
 		$this->M_admin_home->proses_edit_tabel();
 		redirect('home/dashboard');
 	}
+
+	/**
+	 * tes halaman sekolah
+	 */
+	public function sekolah()
+	{
+		$data['title'] = 'Halaman Admin';
+		$data['total_siswa'] = $this->M_admin_home->hitungjumlahsiswa();
+		$this->load->view('back/header', $data);
+		$this->load->view('back/sidebar');
+		$this->load->view('back/topbar');
+		$this->load->view('back/home');
+		$this->load->view('back/footer');
+	}
 }

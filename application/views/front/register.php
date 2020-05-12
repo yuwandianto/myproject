@@ -15,6 +15,12 @@
 
     <!-- <link href="<?= base_url('assets/templates/front/'); ?>css/icons.css" rel="stylesheet"> -->
 
+    <style>
+        body {
+            padding-top: 0px ;
+        }
+    </style>
+
 </head>
 
 <body class="bg-light" style="height: auto;background-image:url(<?= base_url('assets/templates/front/'); ?>img/bg-3.jpg);">
@@ -22,17 +28,18 @@
         <div class="misc-content">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-md-12 text-center mb-3">
-                        <a href="/" title="Kembali ke Dashboard">
+                    <div class="col-md-12 text-center mb-2">
+                        
                             <img alt="" src="<?= base_url('assets/templates/front/'); ?>img/logo.png" class="logo-icon margin-r-10">
-                        </a>
+                        
                         <h3>PENERIMAAN PESERTA DIDIK BARU</h3>
                         <h4>Tahun Pelajaran 2020 / 2021</h4>
                     </div>
                     <div class="col-md-6 col-xs-12">
                         <div class="misc-box">
+                        <h5 class="text-center">FORMULIR PENDAFTARAN</h5><hr>
                             <form id="main-form" role="form" method="POST" action="<?= base_url('auth/register'); ?>">
-
+                            <input type="hidden" name="<?= $this->security->get_csrf_token_name();?>" value="<?= $this->security->get_csrf_hash() ;?>" style="display:none">
                                 <div class="form-group">
                                     <label for="nisn">NISN ( <span class="text-danger"> * </span>)</label>
                                     <div class="input-group">
@@ -67,39 +74,30 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="nisn">TANGGAL LAHIR ( <span class="text-danger"> * </span>)</label>
+                                    <label for="tgl">TANGGAL LAHIR ( <span class="text-danger"> * </span>)</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1"><i class="fa fa-calendar-alt"></i></span>
                                         </div>
-                                        <input type="date" name="tgl_lahir" id="tgl_lahir" class="form-control" value="<?= set_value('tgl_lahir'); ?>">
-
-                                        <!-- <table>
-                                    <tr>
-                                        <td>
-                                            <select name="tgl_lahir" id="tgl_lahir" class="form-control">
-                                                <option value="">01</option>
-                                            </select>
-                                        </td>
-                                        <td width="20px"></td>
-                                        <td>
-                                            <select name="tgl_lahir" id="tgl_lahir" class="form-control">
-                                                <option value="">01</option>
-                                            </select>
-                                        </td>
-                                        <td width="20px"></td>
-                                        <td>
-                                            <input type="number" name="th_lahir" id="th_lahir" class="form-control">
-                                        </td>
-
-                                    </tr>
-                                </table> -->
+                                        <select style="margin-right: 10px" name="tgl_lahir" id="tgl_lahir" class="form-control col-sm-3" required>
+                                            <option value="">pilih tgl</option>
+                                            <?php foreach ($tgl as $tg) :?>
+                                                <option <?= set_select('tgl_lahir', $tg) ;?>><?= $tg ;?></option>
+                                            <?php endforeach ;?>
+                                        </select>
+                                        <select style="margin-right: 10px" name="bln_lahir" id="bln_lahir" class="form-control col-sm-3" required>
+                                            <option value="">pilih bln</option>
+                                            <?php foreach ($bln as $bl) :?>
+                                                <option <?= set_select('bln_lahir', $bl) ;?>><?= $bl ;?></option>
+                                            <?php endforeach ;?>
+                                        </select>
+                                        <input type="number" name="tahun_lahir" id="tahun_lahir" class="form-control" value="<?= set_value('tahun_lahir'); ?>" required>
                                     </div>
-                                    <small class="text-danger"><?= form_error('tgl_lahir'); ?></small>
+                                    <small class="text-danger"><?= form_error('tahun_lahir'); ?></small>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="nisn">VALIDASI ( <span class="text-danger"> * </span>)</label>
+                                    <label for="validasi">VALIDASI ( <span class="text-danger"> * </span>)</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1"><i class="fa fa-key"></i></span>
@@ -108,10 +106,9 @@
                                     </div>
                                 </div>
 
-
                                 <div class="clearfix">
                                     <div class="text-center">
-                                        <button type="submit" class="btn btn-flat btn-primary btn-block"><i class="fa fa-sign-in"></i> Registrasi</button>
+                                        <button type="submit" class="btn btn-flat btn-primary btn-block"><i class="fa fa-sign-in"></i> Daftar</button>
                                     </div>
                                 </div>
                                 <hr>
