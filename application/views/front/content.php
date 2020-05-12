@@ -323,9 +323,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="title text-center mb-3">
-                    <h2>Berita dan Pengumuman
+                    <h2><?php echo $berita['nama_berita']; ?>
                     </h2>
-                    <p class="text-muted">Lihat berita dan pengumuman terbaru dari PPDB.
+                    <p class="text-muted"><?php echo $berita['title_berita']; ?>
                     </p>
                 </div>
             </div>
@@ -339,7 +339,7 @@
             </div>
             <div class="col-lg-7">
                 <div class="features-content" id="tempat-informasi">
-                    <a data-toggle="modal" id="getInformasi" data-target="#viewInformasi" data-url="informasi/32" href="#.">
+                    <a data-toggle="modal" id="getInformasi" data-target="#viewInformasi" data-url="informasi/32" href="#">
                         <h4 class="mb-3">
                             <i class="mdi mdi-album">
                             </i> Pendaftaran Peserta didik Jalur Prestasi

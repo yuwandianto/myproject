@@ -95,4 +95,35 @@ class Home extends CI_Controller
 		$this->M_admin_home->proses_tambah_tabel();
 		redirect('home/dashboard');
 	}
+
+	public function berita()
+	{
+		$data['berita'] = $this->M_admin_home->tampil_data_berita();
+		$data['isi_berita'] = $this->M_admin_home->tampil_data_isiberita();
+		// $data['judul'] = $this->M_admin_home->tampildata();
+		$data['title'] = 'Berita';
+		$this->load->view('back/header', $data);
+		$this->load->view('back/sidebar');
+		$this->load->view('back/topbar');
+		$this->load->view('back/berita/dashboard', $data);
+		$this->load->view('back/footer');
+	}
+
+	public function edit_berita()
+	{
+		$data['berita'] = $this->M_admin_home->tampil_data_berita();
+		$data['isiberita'] = $this->M_admin_home->tampil_data_berita();
+		$data['title'] = 'Edit Berita';
+		$this->load->view('back/header', $data);
+		$this->load->view('back/sidebar');
+		$this->load->view('back/topbar');
+		$this->load->view('back/berita/edit', $data);
+		$this->load->view('back/footer');
+	}
+
+	public function proses_edit_berita()
+	{
+		$this->M_admin_home->proses_edit_berita();
+		redirect('home/berita');
+	}
 }

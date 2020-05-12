@@ -77,4 +77,36 @@ class M_admin_home extends CI_Model
 
         $this->db->insert('tabel_jadwal', $data);
     }
+
+    public function tampil_data_berita()
+    {
+        return $this->db->get('berita')->row_array();
+    }
+
+    public function ambil_id_berita($id)
+    {
+        return $this->db->get_where('berita', ['id' => $id])->row_array();
+    }
+
+    public function proses_edit_berita()
+    {
+        $data = [
+            "nama_berita" => $this->input->post('nama_berita', TRUE),
+            "title_berita" => $this->input->post('title_berita', TRUE)
+        ];
+
+
+        $this->db->where('id', $this->input->post('id'));
+        $this->db->update('berita', $data);
+    }
+
+    public function tampil_data_isiberita()
+    {
+        return $this->db->get('isi_berita')->result_array();
+    }
+
+    public function ambil_id_isiberita($id)
+    {
+        return $this->db->get_where('isi_berita', ['id' => $id])->row_array();
+    }
 }
