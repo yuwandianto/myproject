@@ -39,10 +39,19 @@ $menu = $this->uri->segment(2);; ?>
 
   <!-- Nav Item - Tables -->
   <li class="nav-item">
-    <a class="nav-link" href="<?php echo base_url('home/dashboard') ?>">
-      <i class="fas fa-fw fa-user-cog"></i>
-      <span>Setting</span></a>
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+      <i class="fas fa-fw fa-cog"></i>
+      <span>Master Setting</span>
+    </a>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+      <div class="bg-white py-2 collapse-inner rounded">
+        <h6 class="collapse-header">Setting Dashboard:</h6>
+        <a class="collapse-item" href="<?php echo base_url('home/dashboard') ?>">Judul Setting</a>
+        <a class="collapse-item" href="cards.html">Cards</a>
+      </div>
+    </div>
   </li>
+
 
   <!-- Divider -->
   <hr class="sidebar-divider d-none d-md-block">
