@@ -15,7 +15,11 @@
 
     <script src="<?= base_url('assets/templates/front/'); ?>js/jquery.min.js"></script>
 
-
+    <style>
+        body {
+            padding-top: 0px ;
+        }
+    </style>
 
 </head>
 <div class="flash_data" data-flash_data="<?= $this->session->flashdata('error');?>"></div>

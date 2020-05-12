@@ -15,6 +15,12 @@
 
     <!-- <link href="<?= base_url('assets/templates/front/'); ?>css/icons.css" rel="stylesheet"> -->
 
+    <style>
+        body {
+            padding-top: 0px ;
+        }
+    </style>
+
 </head>
 
 <body class="bg-light" style="height: auto;background-image:url(<?= base_url('assets/templates/front/'); ?>img/bg-3.jpg);">
@@ -22,15 +28,16 @@
         <div class="misc-content">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-md-12 text-center mb-3">
-                        <a href="/" title="Kembali ke Dashboard">
+                    <div class="col-md-12 text-center mb-2">
+                        
                             <img alt="" src="<?= base_url('assets/templates/front/'); ?>img/logo.png" class="logo-icon margin-r-10">
-                        </a>
+                        
                         <h3>PENERIMAAN PESERTA DIDIK BARU</h3>
                         <h4>Tahun Pelajaran 2020 / 2021</h4>
                     </div>
                     <div class="col-md-6 col-xs-12">
                         <div class="misc-box">
+                        <h5 class="text-center">FORMULIR PENDAFTARAN</h5><hr>
                             <form id="main-form" role="form" method="POST" action="<?= base_url('auth/register'); ?>">
                             <input type="hidden" name="<?= $this->security->get_csrf_token_name();?>" value="<?= $this->security->get_csrf_hash() ;?>" style="display:none">
                                 <div class="form-group">
