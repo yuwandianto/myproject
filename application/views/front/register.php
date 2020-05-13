@@ -19,11 +19,28 @@
         body {
             padding-top: 0px ;
         }
+
+        .misc-box {
+            box-shadow: 0px 0px 0px 0px #888888;
+            transition: 0.2s;
+            border-radius: 5px;
+        }
+        .misc-box:hover {
+            box-shadow: 0px 0px 5px 5px #888888;
+            border-radius: 10px;
+        }
+        .btn {
+            border-radius: 2px !important;
+            transition: 0.2s;
+        }
+        .btn:hover {
+            border: 1px solid red !important;
+        }
     </style>
 
 </head>
 
-<body class="bg-light" style="height: auto;background-image:url(<?= base_url('assets/templates/front/'); ?>img/bg-3.jpg);">
+<body class="bg-light" style="height: auto; background-image:url(<?= base_url('assets/templates/front/'); ?>img/bg-3.jpg); background-repeat: no-repeat; background-size: cover">
     <div id="app" class="misc-wrapper">
         <div class="misc-content">
             <div class="container">
