@@ -117,9 +117,7 @@ class Auth extends CI_Controller
     {
 
         $this->form_validation->set_rules('username', 'Username', 'trim|required');
-        $this->form_validation->set_rules('password', 'Password', 'trim|required');
-
-
+        
         if ($this->form_validation->run() == FALSE) {
             # code...
             $a = rand(1, 9);
@@ -135,17 +133,23 @@ class Auth extends CI_Controller
 
             $this->session->set_userdata($array);
 
+            $data['tgl'] = array('01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31');
+            $data['bln'] = array('01','02','03','04','05','06','07','08','09','10','11','12');
+
             $this->load->view('front/login', $data);
         } else {
+
             $this->login_siswa();
         }
     }
 
     private function login_siswa()
     {
-        $username = $this->input->post('username', true);
-        $password = $this->input->post('password', true);
-        $validasi = $this->input->post('validasi', true);
+        $username  = $this->input->post('username', true);
+        $tgl_lahir = $this->input->post('tgl_lahir', true);
+        $bln_lahir = $this->input->post('bln_lahir', true);
+        $thn_lahir = $this->input->post('thn_lahir', true);
+        $validasi  = $this->input->post('validasi', true);
 
 
         if ($validasi == $this->session->userdata('key')) {
@@ -156,7 +160,9 @@ class Auth extends CI_Controller
 
             if ($query) {
                 # jika nisn ditemukan...
-                if (password_verify($password, $query['pass'])) {
+                $query1 = $this->db->get_where('tbl_registrasi', ['nisn' => $username, 'tgl_lahir' => $tgl_lahir, 'bln_lahir' => $bln_lahir, 'thn_lahir' => $thn_lahir])->row_array();
+
+                if ($query1) {
                     # jika password benar...
 
                     $array = array(

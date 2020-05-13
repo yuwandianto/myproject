@@ -67,15 +67,24 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="password">PASSWORD</label>
-                                    <div class="input-group" id="show_hide_password">
+                                    <label for="tgl">TANGGAL LAHIR</label>
+                                    <div class="input-group">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-unlock-alt"></i> </span>
+                                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-calendar-alt"></i></span>
                                         </div>
-                                        <input id="password" name="password" type="password" placeholder="Password" class="form-control " required>
-                                        <div class="input-group-append">
-                                            <button class="input-group-text" type="button"><i class="fa fa-eye-slash" aria-hidden="true"></i></button>
-                                        </div>
+                                        <select style="margin-right: 10px" name="tgl_lahir" id="tgl_lahir" class="form-control col-sm-3" required>
+                                            <option value="">pilih tgl</option>
+                                            <?php foreach ($tgl as $tg) :?>
+                                                <option><?= $tg ;?></option>
+                                            <?php endforeach ;?>
+                                        </select>
+                                        <select style="margin-right: 10px" name="bln_lahir" id="bln_lahir" class="form-control col-sm-3" required>
+                                            <option value="">pilih bln</option>
+                                            <?php foreach ($bln as $bl) :?>
+                                                <option><?= $bl ;?></option>
+                                            <?php endforeach ;?>
+                                        </select>
+                                        <input type="number" name="thn_lahir" id="thn_lahir" class="form-control" required>
                                     </div>
                                 </div>
 
