@@ -206,13 +206,123 @@
 												<input type="number" class="span3" name="tahun_lulus" id="tahun_lulus" value="<?= $siswa['tahun_lulus'];?>" required placeholder="Tahun lulus jenjang sebelumnya">
 											</div> <!-- /controls -->				
 										</div> <!-- /control-group -->
+                    <hr>
+                    <h4 style="text-align: center">NILAI RAPOR</h4>
+                    <br>
+
+                    <div class="row">
+                      <div class="span9">
+                        <table>
+                          <tr>
+                            <th class="span2"></th>
+                            <th>B.Indo</th>
+                            <th>B.Ing</th>
+                            <th>Mat</th>
+                            <th>IPA</th>
+                          </tr>
+                          <tr>
+                            <td style="text-align: right; padding-right: 10px">Semester 1</td>
+                            <td><input style="text-align: right;" type="number" class="span2" name="bin1" id="bin1" required value="<?= $siswa['bin1'];?>"></td>
+                            <td><input style="text-align: right;" type="number" class="span2" name="big1" id="big1" required value="<?= $siswa['big1'];?>"></td>
+                            <td><input style="text-align: right;" type="number" class="span2" name="mtk1" id="mtk1" required value="<?= $siswa['mtk1'];?>"></td>
+                            <td><input style="text-align: right;" type="number" class="span2" name="ipa1" id="ipa1" required value="<?= $siswa['ipa1'];?>"></td>
+                          </tr>
+                          <tr>
+                            <td style="text-align: right; padding-right: 10px">Semester 2</td>
+                            <td><input style="text-align: right;" type="number" class="span2" name="bin2" id="bin2" required value="<?= $siswa['bin2'];?>"></td>
+                            <td><input style="text-align: right;" type="number" class="span2" name="big2" id="big2" required value="<?= $siswa['big2'];?>"></td>
+                            <td><input style="text-align: right;" type="number" class="span2" name="mtk2" id="mtk2" required value="<?= $siswa['mtk2'];?>"></td>
+                            <td><input style="text-align: right;" type="number" class="span2" name="ipa2" id="ipa2" required value="<?= $siswa['ipa2'];?>"></td>
+                          </tr>
+                          <tr>
+                            <td style="text-align: right; padding-right: 10px">Semester 3</td>
+                            <td><input style="text-align: right;" type="number" class="span2" name="bin3" id="bin3" required value="<?= $siswa['bin3'];?>"></td>
+                            <td><input style="text-align: right;" type="number" class="span2" name="big3" id="big3" required value="<?= $siswa['big3'];?>"></td>
+                            <td><input style="text-align: right;" type="number" class="span2" name="mtk3" id="mtk3" required value="<?= $siswa['mtk3'];?>"></td>
+                            <td><input style="text-align: right;" type="number" class="span2" name="ipa3" id="ipa3" required value="<?= $siswa['ipa3'];?>"></td>
+                          </tr>
+                          <tr>
+                            <td style="text-align: right; padding-right: 10px">Semester 4</td>
+                            <td><input style="text-align: right;" type="number" class="span2" name="bin4" id="bin4" required value="<?= $siswa['bin4'];?>"></td>
+                            <td><input style="text-align: right;" type="number" class="span2" name="big4" id="big4" required value="<?= $siswa['big4'];?>"></td>
+                            <td><input style="text-align: right;" type="number" class="span2" name="mtk4" id="mtk4" required value="<?= $siswa['mtk4'];?>"></td>
+                            <td><input style="text-align: right;" type="number" class="span2" name="ipa4" id="ipa4" required value="<?= $siswa['ipa4'];?>"></td>
+                          </tr>
+                          <tr>
+                            <td style="text-align: right; padding-right: 10px">Semester 5</td>
+                            <td><input style="text-align: right;" type="number" class="span2" name="bin5" id="bin5" required value="<?= $siswa['bin5'];?>"></td>
+                            <td><input style="text-align: right;" type="number" class="span2" name="big5" id="big5" required value="<?= $siswa['big5'];?>"></td>
+                            <td><input style="text-align: right;" type="number" class="span2" name="mtk5" id="mtk5" required value="<?= $siswa['mtk5'];?>"></td>
+                            <td><input style="text-align: right;" type="number" class="span2" name="ipa5" id="ipa5" required value="<?= $siswa['ipa5'];?>"></td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+<hr>
+                    <h4 style="text-align: center">PRESTASI NON AKADEMIK</h4>
+                    <br>
 
                     <div class="control-group">											
-											<label class="control-label"></label>
+											<label class="control-label" for="tingkat_prestasi">Prestasi Tingkat</label>
 											<div class="controls">
-												<input type="submit" class="btn btn-success">
+												<select name="tingkat_prestasi" id="tingkat_prestasi" class="span7" >
+                          <option value="">-- Pilih  --</option>
+                          <option <?php if ($siswa['tingkat_prestasi'] == 'Internasional') { echo 'selected'; } ;?>>Internasional</option>
+                          <option <?php if ($siswa['tingkat_prestasi'] == 'Nasional') { echo 'selected'; } ;?>>Nasional</option>
+                          <option <?php if ($siswa['tingkat_prestasi'] == 'Provinsi') { echo 'selected'; } ;?>>Provinsi</option>
+                          <option <?php if ($siswa['tingkat_prestasi'] == 'Kabupaten') { echo 'selected'; } ;?>>Kabupaten</option>
+                          <option <?php if ($siswa['tingkat_prestasi'] == 'Kecamatan') { echo 'selected'; } ;?>>Kecamatan</option>
+                        </select>
 											</div> <!-- /controls -->				
 										</div> <!-- /control-group -->
+
+                    <div class="control-group">											
+											<label class="control-label" for="juara_prestasi">Juara</label>
+											<div class="controls">
+												<select name="juara_prestasi" id="juara_prestasi" class="span7" >
+                          <option value="">-- Pilih  --</option>
+                          <option <?php if ($siswa['juara_prestasi'] == 'Satu') { echo 'selected'; } ;?>>Satu</option>
+                          <option <?php if ($siswa['juara_prestasi'] == 'Dua') { echo 'selected'; } ;?>>Dua</option>
+                          <option <?php if ($siswa['juara_prestasi'] == 'Tiga') { echo 'selected'; } ;?>>Tiga</option>
+                          <option <?php if ($siswa['juara_prestasi'] == 'Harapan Satu') { echo 'selected'; } ;?>>Harapan Satu</option>
+                          <option <?php if ($siswa['juara_prestasi'] == 'Peserta') { echo 'selected'; } ;?>>Peserta</option>
+                        </select>
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+
+                    <div class="control-group">											
+											<label class="control-label" for="bidang_prestasi">Prestasi Bidang</label>
+											<div class="controls">
+												<select name="bidang_prestasi" id="bidang_prestasi" class="span7" >
+                          <option value="">-- Pilih  --</option>
+                          <option <?php if ($siswa['bidang_prestasi'] == 'Sains dan teknologi') { echo 'selected'; } ;?>>Sains dan teknologi</option>
+                          <option <?php if ($siswa['bidang_prestasi'] == 'Keagamaan') { echo 'selected'; } ;?>>Keagamaan</option>
+                          <option <?php if ($siswa['bidang_prestasi'] == 'Seni') { echo 'selected'; } ;?>>Seni</option>
+                          <option <?php if ($siswa['bidang_prestasi'] == 'Olahraga') { echo 'selected'; } ;?>>Olahraga</option>
+                          <option <?php if ($siswa['bidang_prestasi'] == 'Bidang Lainnya') { echo 'selected'; } ;?>>Bidang Lainnya</option>
+                        </select>
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+
+                    <div class="control-group">											
+											<label class="control-label" for="nama_prestasi">Nama Kegiatan</label>
+											<div class="controls">
+												<input type="text" class="span7" name="nama_prestasi" id="nama_prestasi" value="<?= $siswa['nama_prestasi'];?>" placeholder="Contoh : O2SN tingkat SMA cabang Atletik">
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+                    
+
+                    											
+										
+                    <br><br>
+
+                    <!-- <div class="control-group">											
+											<label class="control-label"></label> -->
+											<div style="text-align: center">
+                        <input type="checkbox" name="benar" id="benar" required> <span>Saya menyatakan bahwa data yang saya masukkan adalah benar.</span><br><br><br>
+												<input type="submit" class="btn btn-success span4" value="Simpan">
+											</div> <!-- /controls -->				
+										<!-- </div> /control-group -->
 
 									</fieldset>
 								<?= form_close() ;?>
@@ -257,13 +367,6 @@
         </div>
         <!-- /span3 -->
 
-       
-
-
-      </div>
-      <!-- /row --> 
-
-      <div class="row">
         <div class="span3">
           <div class="widget widget-nopad">
             <div class="widget-header"> <i class="icon-file"></i>
@@ -359,6 +462,15 @@
 
         </div>
         <!-- /span3 -->
+
+       
+
+
+      </div>
+      <!-- /row --> 
+
+      <div class="row">
+        
       </div>
     </div>
     <!-- /container --> 

@@ -18,15 +18,16 @@ class Siswa extends CI_Controller {
 
         $data['siswa'] = $this->db->get_where('tbl_registrasi', ['nisn' => $this->session->userdata('nisn')])->row_array();
 
-        $this->load->view('student/meta');
+        $this->load->view('student/meta', $data);
         $this->load->view('student/navbar');
         $this->load->view('student/subnavbar');
-        $this->load->view('student/main', $data);
+        $this->load->view('student/main');
         $this->load->view('student/footer');
         $this->load->view('student/script');
         
     }
 
+   
     function lengkapidata()
     {
         $this->form_validation->set_rules('nama', 'nama', 'trim|required');
@@ -67,21 +68,46 @@ class Siswa extends CI_Controller {
         } else {
             # jika validasi berhasil...
             $data = [
-                'nama' => $this->input->post('nama', true),        
-                'tempat_lahir' => $this->input->post('tempat_lahir', true),        
-                'tgl_lahir' => $this->input->post('tgl_lahir', true),        
-                'bln_lahir' => $this->input->post('bln_lahir', true),        
-                'thn_lahir' => $this->input->post('thn_lahir', true),        
-                'jk' => $this->input->post('jk', true),        
-                'agama' => $this->input->post('agama', true),        
-                'penerima_kip' => $this->input->post('penerima_kip', true),        
-                'alamat_jalan' => $this->input->post('alamat_jalan', true),        
-                'rt' => $this->input->post('rt', true),        
-                'rw' => $this->input->post('rw', true),        
-                'desa' => $this->input->post('desa', true),        
-                'kecamatan' => $this->input->post('kecamatan', true),        
-                'sekolah_asal' => $this->input->post('sekolah_asal', true),        
-                'tahun_lulus' => $this->input->post('tahun_lulus', true),        
+                'nama'             => $this->input->post('nama', true),
+                'tempat_lahir'     => $this->input->post('tempat_lahir', true),
+                'tgl_lahir'        => $this->input->post('tgl_lahir', true),
+                'bln_lahir'        => $this->input->post('bln_lahir', true),
+                'thn_lahir'        => $this->input->post('thn_lahir', true),
+                'jk'               => $this->input->post('jk', true),
+                'agama'            => $this->input->post('agama', true),
+                'penerima_kip'     => $this->input->post('penerima_kip', true),
+                'alamat_jalan'     => $this->input->post('alamat_jalan', true),
+                'rt'               => $this->input->post('rt', true),
+                'rw'               => $this->input->post('rw', true),
+                'desa'             => $this->input->post('desa', true),
+                'kecamatan'        => $this->input->post('kecamatan', true),
+                'sekolah_asal'     => $this->input->post('sekolah_asal', true),
+                'tahun_lulus'      => $this->input->post('tahun_lulus', true),
+                'bin1'             => $this->input->post('bin1', true),
+                'big1'             => $this->input->post('big1', true),
+                'mtk1'             => $this->input->post('mtk1', true),
+                'ipa1'             => $this->input->post('ipa1', true),
+                'bin2'             => $this->input->post('bin2', true),
+                'big2'             => $this->input->post('big2', true),
+                'mtk2'             => $this->input->post('mtk2', true),
+                'ipa2'             => $this->input->post('ipa2', true),
+                'bin3'             => $this->input->post('bin3', true),
+                'big3'             => $this->input->post('big3', true),
+                'mtk3'             => $this->input->post('mtk3', true),
+                'ipa3'             => $this->input->post('ipa3', true),
+                'bin4'             => $this->input->post('bin4', true),
+                'big4'             => $this->input->post('big4', true),
+                'mtk4'             => $this->input->post('mtk4', true),
+                'ipa4'             => $this->input->post('ipa4', true),
+                'bin5'             => $this->input->post('bin5', true),
+                'big5'             => $this->input->post('big5', true),
+                'mtk5'             => $this->input->post('mtk5', true),
+                'ipa5'             => $this->input->post('ipa5', true),
+                'tingkat_prestasi' => $this->input->post('tingkat_prestasi', true),
+                'juara_prestasi'   => $this->input->post('juara_prestasi', true),
+                'bidang_prestasi'  => $this->input->post('bidang_prestasi', true),
+                'nama_prestasi'    => $this->input->post('nama_prestasi', true),
+                'benar'    => $this->input->post('benar', true),
             ];
 
             $simpan = $this->s->lengkapidata($data);
