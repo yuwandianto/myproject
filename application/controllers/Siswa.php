@@ -104,6 +104,36 @@ class Siswa extends CI_Controller {
 
     }
 
+    function uplodkk()
+    {
+        $simpan = $this->s->uplodkk();
+        if ($simpan == 'success') {
+            # code...
+            redirect('siswa','refresh');
+        } 
+
+    }
+
+    function uplodraport()
+    {
+        $simpan = $this->s->uplodraport();
+        if ($simpan == 'success') {
+            # code...
+            redirect('siswa','refresh');
+        } 
+
+    }
+
+    function uplodprestasi()
+    {
+        $simpan = $this->s->uplodprestasi();
+        if ($simpan == 'success') {
+            # code...
+            redirect('siswa','refresh');
+        } 
+
+    }
+
 }
 
 /* End of file Siswa.php */

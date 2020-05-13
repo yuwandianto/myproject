@@ -231,7 +231,7 @@
 
         <div class="span3">
           <div class="widget widget-nopad">
-            <div class="widget-header"> <i class="icon-list-alt"></i>
+            <div class="widget-header"> <i class="icon-user"></i>
               <h3> Foto Pendaftar</h3>
               
             </div>
@@ -255,11 +255,111 @@
           <!-- /widget -->
 
         </div>
-        <!-- /span6 -->
+        <!-- /span3 -->
+
+       
 
 
       </div>
       <!-- /row --> 
+
+      <div class="row">
+        <div class="span3">
+          <div class="widget widget-nopad">
+            <div class="widget-header"> <i class="icon-file"></i>
+              <h3>Bukti Kartu Keluarga</h3>
+              
+            </div>
+            <!-- /widget-header -->
+            <div class="widget-content" style="padding: 10px">
+
+              <div class="widget small-stats-container" style="text-align: center">
+                <?php $eks = explode('.',$siswa['bukti_kk'] ); if ( $eks[1] == 'pdf') :?>
+                  <embed width="100%" height="250" src="./uploads/kk/<?= $siswa['bukti_kk'];?>#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf"></embed>
+                <?php else :?>           
+                <img src="./uploads/kk/<?=$siswa['bukti_kk'];?>" width="60%" alt="Bukti KK">
+                <?php endif ;?>
+                <hr>
+                <?= form_open_multipart('siswa/uplodkk');?>
+                <input type="file" name="foto" id="foto" required>
+                <button type="submit" class="btn btn-success">Simpan</button>
+                <?= form_close() ;?>
+              </div>
+              
+            </div> <!-- /widget-content -->
+                  
+          </div>
+        
+    
+          <!-- /widget -->
+
+        </div>
+        <!-- /span3 -->
+
+        <div class="span3">
+          <div class="widget widget-nopad">
+            <div class="widget-header"> <i class="icon-file"></i>
+              <h3>Bukti Nilai Raport</h3>
+              
+            </div>
+            <!-- /widget-header -->
+            <div class="widget-content" style="padding: 10px">
+
+              <div class="widget small-stats-container" style="text-align: center">
+                <?php $eks = explode('.',$siswa['bukti_raport'] ); if ( $eks[1] == 'pdf') :?>
+                  <embed width="100%" height="250" src="./uploads/raport/<?= $siswa['bukti_raport'];?>#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf"></embed>
+                <?php else :?>           
+                <img src="./uploads/raport/<?=$siswa['bukti_raport'];?>" width="60%" alt="Bukti Raport">
+                <?php endif ;?>
+                <hr>
+                <?= form_open_multipart('siswa/uplodraport');?>
+                <input type="file" name="foto" id="foto" required>
+                <button type="submit" class="btn btn-success">Simpan</button>
+                <?= form_close() ;?>
+              </div>
+              
+            </div> <!-- /widget-content -->
+                  
+          </div>
+        
+    
+          <!-- /widget -->
+
+        </div>
+        <!-- /span3 -->
+
+        <div class="span3">
+          <div class="widget widget-nopad">
+            <div class="widget-header"> <i class="icon-file"></i>
+              <h3>Bukti Prestasi</h3>
+              
+            </div>
+            <!-- /widget-header -->
+            <div class="widget-content" style="padding: 10px">
+
+              <div class="widget small-stats-container" style="text-align: center">
+                <?php $eks = explode('.',$siswa['bukti_prestasi'] ); if ( $eks[1] == 'pdf') :?>
+                  <embed width="100%" height="250" src="./uploads/prestasi/<?= $siswa['bukti_prestasi'];?>#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf"></embed>
+                <?php else :?>           
+                <img src="./uploads/prestasi/<?=$siswa['bukti_prestasi'];?>" width="60%" alt="Bukti Prestasi">
+                <?php endif ;?>
+                <hr>
+                <?= form_open_multipart('siswa/uplodprestasi');?>
+                <input type="file" name="foto" id="foto" required>
+                <button type="submit" class="btn btn-success">Simpan</button>
+                <?= form_close() ;?>
+              </div>
+              
+            </div> <!-- /widget-content -->
+                  
+          </div>
+        
+    
+          <!-- /widget -->
+
+        </div>
+        <!-- /span3 -->
+      </div>
     </div>
     <!-- /container --> 
   </div>
