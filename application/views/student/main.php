@@ -9,16 +9,17 @@
 <div class="main">
   <div class="main-inner">
     <div class="container">
+    
         <div class="row">
             <div class="span12">
-                <?php if ( $this->session->flashdata('error')): ?>
-                  <div class="alert alert-danger">
+                <?php if ( $this->session->flashdata('pesan')): ?>
+                  <div class="alert <?= $this->session->flashdata('jenis') ?>">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <strong>Peringatan !</strong> <?= $this->session->flashdata('error') ;?>
+                    <?= $this->session->flashdata('pesan') ;?>
                   </div>
                 <?php endif;?>
-                <div class="widget widget-nopad">
-                    <div class="widget-content" style="padding: 10px;">
+                <!-- <div class="widget widget-nopad">
+                    <div class="widget-content" style="padding: 20px;">
                         <div class="news-item-detail">
                             <a href="javascript:void(0)">BACALAH PETUNJUK PENDAFTARAN DI BAWAH INI !</a>
                             <ol style="margin-left: 14px; font-size: 10pt">
@@ -34,7 +35,7 @@
                         </div>
 
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
       <div class="row">
@@ -51,15 +52,7 @@
                   <br>                 
                 <?= form_open('siswa/lengkapidata', 'class="form-horizontal"');?>
 									<fieldset>
-                    <div class="control-group">											
-											<label class="control-label" for="pass">Password Login</label>
-											<div class="controls">
-												<input type="text" class="span4" value="<?= $siswa['asli'];?>" readonly>
-                        <p style="color: red">*) Pastikan menyimpan password login ini sebelum keluar halaman</p>
-											</div> <!-- /controls -->				
-										</div> <!-- /control-group -->
-                    <hr>
-
+                    
                     <div class="control-group">											
 											<label class="control-label" for="nisn">NISN</label>
 											<div class="controls">

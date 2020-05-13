@@ -60,7 +60,9 @@ class Siswa extends CI_Controller {
         
         if ($this->form_validation->run() == FALSE) {
             # jika validasi gagal...
-            $this->session->set_flashdata('error', 'Data gagal disimpan, silahkan periksa kembali data yang dimasukkan');
+            $this->session->set_flashdata('pesan', '<strong>Peringatan !</strong> Data gagal disimpan, silahkan periksa kembali data yang dimasukkan');
+            $this->session->set_flashdata('jenis', 'alert-danger');
+            
             $this->index();
         } else {
             # jika validasi berhasil...
@@ -84,7 +86,8 @@ class Siswa extends CI_Controller {
 
             $simpan = $this->s->lengkapidata($data);
 
-            
+            $this->session->set_flashdata('pesan', '<strong>Alhamdulillah..</strong> Data berhasil disimpan.');
+            $this->session->set_flashdata('jenis', 'alert-success');
             redirect('siswa','refresh');
             
         }
