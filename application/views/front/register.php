@@ -46,9 +46,9 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-12 text-center mb-2">
-                        
+                        <a href="<?= base_url();?>" title="Kembali ke Dashboard">
                             <img alt="" src="<?= base_url('assets/templates/front/'); ?>img/logo.png" class="logo-icon margin-r-10">
-                        
+                        </a>
                         <h3>PENERIMAAN PESERTA DIDIK BARU</h3>
                         <h4>Tahun Pelajaran 2020 / 2021</h4>
                     </div>
