@@ -2,17 +2,26 @@
     a:hover {
         text-decoration: none;
     }
+    .form-control {
+      width: 100%;
+    }
 </style>
 <div class="main">
   <div class="main-inner">
     <div class="container">
         <div class="row">
             <div class="span12">
+                <?php if ( $this->session->flashdata('error')): ?>
+                  <div class="alert alert-danger">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>Peringatan !</strong> <?= $this->session->flashdata('error') ;?>
+                  </div>
+                <?php endif;?>
                 <div class="widget widget-nopad">
                     <div class="widget-content" style="padding: 10px;">
                         <div class="news-item-detail">
                             <a href="javascript:void(0)">BACALAH PETUNJUK PENDAFTARAN DI BAWAH INI !</a>
-                            <ol style="margin-left: 14px; font-size: 9pt">
+                            <ol style="margin-left: 14px; font-size: 10pt">
                                 <li>Setiap pendaftar harus melengkapi data sesuai dengan formulir yang disediakan (yang tidak melengkapi data maka dinyatakan membatalkan proses pendaftaran)</li>
                                 <li>Nomor Induk Siswa Nasional bersifat UNIK dan hanya bisa digunakan untuk melakukan pendaftaran satu kali</li>
                                 <li>Calon peserta didik berusia paling tinggi 21 (dua puluh satu) tahun pada tanggal 13 Juli 2020 dengan dibuktikan akta kelahiran atau surat keterangan lahir yang dilegalisasi oleh lurah/kepala desa sesuai dengan domisili calon peserta didik.</li>
@@ -29,241 +38,232 @@
             </div>
         </div>
       <div class="row">
-        <div class="span6">
+        <div class="span9">
           <div class="widget widget-nopad">
             <div class="widget-header"> <i class="icon-list-alt"></i>
               <h3> Kelengkapan Data Pendaftar</h3>
+              
             </div>
             <!-- /widget-header -->
-            <div class="widget-content">
-              <div class="widget big-stats-container">
-                <div class="widget-content">
-                  <h6 class="bigstats">A fully responsive premium quality admin template built on Twitter Bootstrap by <a href="http://www.egrappler.com" target="_blank">EGrappler.com</a>.  These are some dummy lines to fill the area.</h6>
-                  <div id="big_stats" class="cf">
-                    <div class="stat"> <i class="icon-anchor"></i> <span class="value">851</span> </div>
-                    <!-- .stat -->
-                    
-                    <div class="stat"> <i class="icon-thumbs-up-alt"></i> <span class="value">423</span> </div>
-                    <!-- .stat -->
-                    
-                    <div class="stat"> <i class="icon-twitter-sign"></i> <span class="value">922</span> </div>
-                    <!-- .stat -->
-                    
-                    <div class="stat"> <i class="icon-bullhorn"></i> <span class="value">25%</span> </div>
-                    <!-- .stat --> 
-                  </div>
-                </div>
-                <!-- /widget-content --> 
-                
+            <div class="widget-content" style="padding: 10px">
+
+              <div class="widget small-stats-container">
+                  <br>                 
+                <?= form_open('siswa/lengkapidata', 'class="form-horizontal"');?>
+									<fieldset>
+                    <div class="control-group">											
+											<label class="control-label" for="pass">Password Login</label>
+											<div class="controls">
+												<input type="text" class="span4" value="<?= $siswa['asli'];?>" readonly>
+                        <p style="color: red">*) Pastikan menyimpan password login ini sebelum keluar halaman</p>
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+                    <hr>
+
+                    <div class="control-group">											
+											<label class="control-label" for="nisn">NISN</label>
+											<div class="controls">
+												<input type="text" class="span4" value="<?= $siswa['nisn'];?>" readonly>
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+
+										
+										<div class="control-group">											
+											<label class="control-label" for="nama">Nama Lengkap</label>
+											<div class="controls">
+												<input type="text" class="span7" name="nama" id="nama" value="<?= $siswa['nama'];?>" required>
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+
+                    <div class="control-group">											
+											<label class="control-label" for="tempat_lahir">Tempat Lahir</label>
+											<div class="controls">
+												<input type="text" class="span7" name="tempat_lahir" id="tempat_lahir" value="<?= $siswa['tempat_lahir'];?>" required>
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+
+                    <div class="control-group">											
+											<label class="control-label" for="nama">Tanggal Lahir</label>
+											<div class="controls">
+                        <table>
+                          <tr>
+                            <td>
+												      <input type="text" class="span1" name="tgl_lahir" id="tgl_lahir" value="<?= $siswa['tgl_lahir'];?>" required> 
+                            </td>
+                            <td> - </td>
+                            <td>
+												      <input type="text" class="span1" name="bln_lahir" id="bln_lahir" value="<?= $siswa['bln_lahir'];?>" required>
+                            </td>
+                            <td> - </td>
+                            <td>
+												      <input type="text" class="span2" name="thn_lahir" id="thn_lahir" value="<?= $siswa['thn_lahir'];?>" required>
+                            </td>
+                          </tr>
+                        </table>
+                        <?php if (form_error('tgl_lahir')) {echo '<p>'.form_error('tgl_lahir').'</p>';} ;?>
+                        <?php if (form_error('bln_lahir')) {echo '<p>'.form_error('bln_lahir').'</p>';} ;?>
+                        <?php if (form_error('thn_lahir')) {echo '<p>'.form_error('thn_lahir').'</p>';} ;?>
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+
+                    <div class="control-group">											
+											<label class="control-label" for="jk">Jenis Kelamin</label>
+											<div class="controls">
+                        <table>
+                          <tr>
+                            <td width="13px">
+												      <input type="radio" name="jk" id="jk" value="1" <?php if ($siswa['jk'] == '1') { echo 'checked';} ;?> required> 
+                            </td>
+                            <td> Laki-laki </td>
+                            <td width="20px"></td>
+                            <td width="13px">
+												      <input type="radio" name="jk" id="jk" value="2" <?php if ($siswa['jk'] == '2') { echo 'checked';} ;?> required>
+                            </td>
+                            <td> Perempuan </td>
+                          </tr>
+                        </table>
+
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+
+                    <div class="control-group">											
+											<label class="control-label" for="agama">Agama</label>
+											<div class="controls">
+												<select name="agama" id="agama" class="span4" required>
+                          <option value="">-- Pilih agama yang dianut --</option>
+                          <option <?php if ($siswa['agama'] == 'Islam') { echo 'selected'; } ;?>>Islam</option>
+                          <option <?php if ($siswa['agama'] == 'Kristen') { echo 'selected'; } ;?>>Kristen</option>
+                          <option <?php if ($siswa['agama'] == 'Protestan') { echo 'selected'; } ;?>>Protestan</option>
+                          <option <?php if ($siswa['agama'] == 'Hindu') { echo 'selected'; } ;?>>Hindu</option>
+                          <option <?php if ($siswa['agama'] == 'Budha') { echo 'selected'; } ;?>>Budha</option>
+                          <option <?php if ($siswa['agama'] == 'Konghucu') { echo 'selected'; } ;?>>Konghucu</option>
+                        </select>
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+
+                    <div class="control-group">											
+											<label class="control-label" for="penerima_kip">Penerima KIP</label>
+											<div class="controls">
+                        <table>
+                          <tr>
+                            <td width="13px">
+												      <input type="radio" name="penerima_kip" id="penerima_kip" value="Ya" <?php if ($siswa['penerima_kip'] == 'Ya') { echo 'checked';} ;?> required> 
+                            </td>
+                            <td> Ya <td>
+                            <td width="20px"></td>
+                            <td width="13px">
+												      <input type="radio" name="penerima_kip" id="penerima_kip" value="Tidak" <?php if ($siswa['penerima_kip'] == 'Tidak') { echo 'checked';} ;?> required>
+                            </td>
+                            <td> Tidak </td>
+                          </tr>
+                        </table>
+
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+
+                    <div class="control-group">											
+											<label class="control-label" for="lamat_jalan">Alamat</label>
+											<div class="controls">
+												<textarea name="alamat_jalan" id="alamat_jalan" rows="2" class="span7" placeholder="Nama Jalan, gang, nomor rumah"><?= $siswa['alamat_jalan'];?></textarea>
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+
+                    <div class="control-group">											
+											<label class="control-label" for="rt">RT / RW</label>
+											<div class="controls">
+                        <table>
+                          <tr>
+                            <td>
+                              <input type="text" class="span1" name="rt" id="rt" value="<?= $siswa['rt'];?>" placeholder="RT" required>
+                            </td>
+                            <td> / </td>
+                            <td>
+                              <input type="text" class="span1" name="rw" id="rw" value="<?= $siswa['rw'];?>" placeholder="RW" required>
+                            </td>
+                          </tr>
+                        </table>
+												
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+
+                    <div class="control-group">											
+											<label class="control-label" for="desa">Desa</label>
+											<div class="controls">
+												<input type="text" class="span7" name="desa" id="desa" value="<?= $siswa['desa'];?>" required placeholder="Nama desa tempat tinggal sekarang">
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+
+                    <div class="control-group">											
+											<label class="control-label" for="kecamatan">Kecamatan</label>
+											<div class="controls">
+												<input type="text" class="span7" name="kecamatan" id="kecamatan" value="<?= $siswa['kecamatan'];?>" required placeholder="Nama kecamatan tempat tinggal sekarang">
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+
+                    <div class="control-group">											
+											<label class="control-label" for="sekolah_asal">Sekolah Asal</label>
+											<div class="controls">
+												<input type="text" class="span7" name="sekolah_asal" id="sekolah_asal" value="<?= $siswa['sekolah_asal'];?>" required placeholder="Nama sekolah jenjang sebelumnya">
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+
+                    <div class="control-group">											
+											<label class="control-label" for="tahun_lulus">Tahun Lulus</label>
+											<div class="controls">
+												<input type="number" class="span3" name="tahun_lulus" id="tahun_lulus" value="<?= $siswa['tahun_lulus'];?>" required placeholder="Tahun lulus jenjang sebelumnya">
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+
+                    <div class="control-group">											
+											<label class="control-label"></label>
+											<div class="controls">
+												<input type="submit" class="btn btn-success">
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+
+									</fieldset>
+								<?= form_close() ;?>
+
               </div>
-            </div>
+              
+            </div> <!-- /widget-content -->
+                  
           </div>
+        
+    
           <!-- /widget -->
-          <div class="widget widget-nopad">
-            <div class="widget-header"> <i class="icon-list-alt"></i>
-              <h3> Recent News</h3>
-            </div>
-            <!-- /widget-header -->
-            <div class="widget-content">
-              <div id='calendar'>
-              </div>
-            </div>
-            <!-- /widget-content --> 
-          </div>
-          <!-- /widget -->
-          <div class="widget">
-            <div class="widget-header"> <i class="icon-file"></i>
-              <h3> Content</h3>
-            </div>
-            <!-- /widget-header -->
-            <div class="widget-content">
-              <ul class="messages_layout">
-                <li class="from_user left"> <a href="#" class="avatar"><img src="img/message_avatar1.png"/></a>
-                  <div class="message_wrap"> <span class="arrow"></span>
-                    <div class="info"> <a class="name">John Smith</a> <span class="time">1 hour ago</span>
-                      <div class="options_arrow">
-                        <div class="dropdown pull-right"> <a class="dropdown-toggle " id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#"> <i class=" icon-caret-down"></i> </a>
-                          <ul class="dropdown-menu " role="menu" aria-labelledby="dLabel">
-                            <li><a href="#"><i class=" icon-share-alt icon-large"></i> Reply</a></li>
-                            <li><a href="#"><i class=" icon-trash icon-large"></i> Delete</a></li>
-                            <li><a href="#"><i class=" icon-share icon-large"></i> Share</a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="text"> As an interesting side note, as a head without a body, I envy the dead. There's one way and only one way to determine if an animal is intelligent. Dissect its brain! Man, I'm sore all over. I feel like I just went ten rounds with mighty Thor. </div>
-                  </div>
-                </li>
-                <li class="by_myself right"> <a href="#" class="avatar"><img src="img/message_avatar2.png"/></a>
-                  <div class="message_wrap"> <span class="arrow"></span>
-                    <div class="info"> <a class="name">Bender (myself) </a> <span class="time">4 hours ago</span>
-                      <div class="options_arrow">
-                        <div class="dropdown pull-right"> <a class="dropdown-toggle " id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#"> <i class=" icon-caret-down"></i> </a>
-                          <ul class="dropdown-menu " role="menu" aria-labelledby="dLabel">
-                            <li><a href="#"><i class=" icon-share-alt icon-large"></i> Reply</a></li>
-                            <li><a href="#"><i class=" icon-trash icon-large"></i> Delete</a></li>
-                            <li><a href="#"><i class=" icon-share icon-large"></i> Share</a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="text"> All I want is to be a monkey of moderate intelligence who wears a suit… that's why I'm transferring to business school! I had more, but you go ahead. Man, I'm sore all over. I feel like I just went ten rounds with mighty Thor. File not found. </div>
-                  </div>
-                </li>
-                <li class="from_user left"> <a href="#" class="avatar"><img src="img/message_avatar1.png"/></a>
-                  <div class="message_wrap"> <span class="arrow"></span>
-                    <div class="info"> <a class="name">Celeste Holm </a> <span class="time">1 Day ago</span>
-                      <div class="options_arrow">
-                        <div class="dropdown pull-right"> <a class="dropdown-toggle " id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#"> <i class=" icon-caret-down"></i> </a>
-                          <ul class="dropdown-menu " role="menu" aria-labelledby="dLabel">
-                            <li><a href="#"><i class=" icon-share-alt icon-large"></i> Reply</a></li>
-                            <li><a href="#"><i class=" icon-trash icon-large"></i> Delete</a></li>
-                            <li><a href="#"><i class=" icon-share icon-large"></i> Share</a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="text"> And I'd do it again! And perhaps a third time! But that would be it. Are you crazy? I can't swallow that. And I'm his friend Jesus. No, I'm Santa Claus! And from now on you're all named Bender Jr. </div>
-                  </div>
-                </li>
-                <li class="from_user left"> <a href="#" class="avatar"><img src="img/message_avatar2.png"/></a>
-                  <div class="message_wrap"> <span class="arrow"></span>
-                    <div class="info"> <a class="name">Mark Jobs </a> <span class="time">2 Days ago</span>
-                      <div class="options_arrow">
-                        <div class="dropdown pull-right"> <a class="dropdown-toggle " id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#"> <i class=" icon-caret-down"></i> </a>
-                          <ul class="dropdown-menu " role="menu" aria-labelledby="dLabel">
-                            <li><a href="#"><i class=" icon-share-alt icon-large"></i> Reply</a></li>
-                            <li><a href="#"><i class=" icon-trash icon-large"></i> Delete</a></li>
-                            <li><a href="#"><i class=" icon-share icon-large"></i> Share</a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="text"> That's the ONLY thing about being a slave. Now, now. Perfectly symmetrical violence never solved anything. Uh, is the puppy mechanical in any way? As an interesting side note, as a head without a body, I envy the dead. </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <!-- /widget-content --> 
-          </div>
-          <!-- /widget --> 
+
         </div>
         <!-- /span6 -->
 
-        <div class="span6">
-          <div class="widget">
-            <div class="widget-header"> <i class="icon-bookmark"></i>
-              <h3>Important Shortcuts</h3>
-            </div>
-            <!-- /widget-header -->
-            <div class="widget-content">
-              <div class="shortcuts"> <a href="javascript:;" class="shortcut"><i class="shortcut-icon icon-list-alt"></i><span
-                                        class="shortcut-label">Apps</span> </a><a href="javascript:;" class="shortcut"><i
-                                            class="shortcut-icon icon-bookmark"></i><span class="shortcut-label">Bookmarks</span> </a><a href="javascript:;" class="shortcut"><i class="shortcut-icon icon-signal"></i> <span class="shortcut-label">Reports</span> </a><a href="javascript:;" class="shortcut"> <i class="shortcut-icon icon-comment"></i><span class="shortcut-label">Comments</span> </a><a href="javascript:;" class="shortcut"><i class="shortcut-icon icon-user"></i><span
-                                                class="shortcut-label">Users</span> </a><a href="javascript:;" class="shortcut"><i
-                                                    class="shortcut-icon icon-file"></i><span class="shortcut-label">Notes</span> </a><a href="javascript:;" class="shortcut"><i class="shortcut-icon icon-picture"></i> <span class="shortcut-label">Photos</span> </a><a href="javascript:;" class="shortcut"> <i class="shortcut-icon icon-tag"></i><span class="shortcut-label">Tags</span> </a> </div>
-              <!-- /shortcuts --> 
-            </div>
-            <!-- /widget-content --> 
-          </div>
-          <!-- /widget -->
-          <div class="widget">
-            <div class="widget-header"> <i class="icon-signal"></i>
-              <h3> Area Chart Example</h3>
-            </div>
-            <!-- /widget-header -->
-            <div class="widget-content">
-              <canvas id="area-chart" class="chart-holder" height="250" width="538"> </canvas>
-              <!-- /area-chart --> 
-            </div>
-            <!-- /widget-content --> 
-          </div>
-          <!-- /widget -->
-          <div class="widget widget-table action-table">
-            <div class="widget-header"> <i class="icon-th-list"></i>
-              <h3>A Table Example</h3>
-            </div>
-            <!-- /widget-header -->
-            <div class="widget-content">
-              <table class="table table-striped table-bordered">
-                <thead>
-                  <tr>
-                    <th> Free Resource </th>
-                    <th> Download</th>
-                    <th class="td-actions"> </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td> Fresh Web Development Resources </td>
-                    <td> http://www.egrappler.com/ </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
-                  <tr>
-                    <td> Fresh Web Development Resources </td>
-                    <td> http://www.egrappler.com/ </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
-                  <tr>
-                    <td> Fresh Web Development Resources </td>
-                    <td> http://www.egrappler.com/ </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
-                  <tr>
-                    <td> Fresh Web Development Resources </td>
-                    <td> http://www.egrappler.com/ </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
-                  <tr>
-                    <td> Fresh Web Development Resources </td>
-                    <td> http://www.egrappler.com/ </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
-                
-                </tbody>
-              </table>
-            </div>
-            <!-- /widget-content --> 
-          </div>
-          <!-- /widget --> 
+        <div class="span3">
           <div class="widget widget-nopad">
             <div class="widget-header"> <i class="icon-list-alt"></i>
-              <h3> Recent News</h3>
+              <h3> Foto Pendaftar</h3>
+              
             </div>
             <!-- /widget-header -->
-            <div class="widget-content">
-              <ul class="news-items">
-                <li>
+            <div class="widget-content" style="padding: 10px">
+
+              <div class="widget small-stats-container" style="text-align: center">            
+                <img src="./uploads/foto/<?=$siswa['foto'];?>" width="60%" alt="Foto Pendaftar">
+                <hr>
+                <?= form_open_multipart('siswa/uplodfoto');?>
+                <input type="file" name="foto" id="foto" required>
+                <button type="submit" class="btn btn-success">Simpan</button>
+                <?= form_close() ;?>
+              </div>
+              
+            </div> <!-- /widget-content -->
                   
-                  <div class="news-item-date"> <span class="news-item-day">29</span> <span class="news-item-month">Aug</span> </div>
-                  <div class="news-item-detail"> <a href="http://www.egrappler.com/thursday-roundup-40/" class="news-item-title" target="_blank">Thursday Roundup # 40</a>
-                    <p class="news-item-preview"> This is our web design and development news series where we share our favorite design/development related articles, resources, tutorials and awesome freebies. </p>
-                  </div>
-                  
-                </li>
-                <li>
-                  
-                  <div class="news-item-date"> <span class="news-item-day">15</span> <span class="news-item-month">Jun</span> </div>
-                  <div class="news-item-detail"> <a href="http://www.egrappler.com/retina-ready-responsive-app-landing-page-website-template-app-landing/" class="news-item-title" target="_blank">Retina Ready Responsive App Landing Page Website Template – App Landing</a>
-                    <p class="news-item-preview"> App Landing is a retina ready responsive app landing page website template perfect for software and application developers and small business owners looking to promote their iPhone, iPad, Android Apps and software products.</p>
-                  </div>
-                  
-                </li>
-                <li>
-                  
-                  <div class="news-item-date"> <span class="news-item-day">29</span> <span class="news-item-month">Oct</span> </div>
-                  <div class="news-item-detail"> <a href="http://www.egrappler.com/open-source-jquery-php-ajax-contact-form-templates-with-captcha-formify/" class="news-item-title" target="_blank">Open Source jQuery PHP Ajax Contact Form Templates With Captcha: Formify</a>
-                    <p class="news-item-preview"> Formify is a contribution to lessen the pain of creating contact forms. The collection contains six different forms that are commonly used. These open source contact forms can be customized as well to suit the need for your website/application.</p>
-                  </div>
-                  
-                </li>
-              </ul>
-            </div>
-            <!-- /widget-content --> 
           </div>
+        
+    
           <!-- /widget -->
+
         </div>
         <!-- /span6 -->
+
 
       </div>
       <!-- /row --> 

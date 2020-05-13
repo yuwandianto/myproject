@@ -32,6 +32,7 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 /tests/results/
 
 user_guide/
+application/config/database.php
 
 ### CodeIgniter ###
 */config/development
@@ -104,5 +105,4 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-application/config/database.php
-application/config/database.php
+
