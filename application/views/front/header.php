@@ -1,5 +1,5 @@
         <!--Navbar Start-->
-        <nav class="navbar navbar-expand-lg fixed-top navbar-custom sticky sticky-dark">
+        <nav class="navbar navbar-expand-lg fixed-top navbar-custom sticky sticky-dark my">
             <div class="container-fluid">
                 <!-- LOGO -->
                 <a class="logo text-uppercase" href="/">
