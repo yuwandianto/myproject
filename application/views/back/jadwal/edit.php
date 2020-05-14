@@ -18,6 +18,12 @@
         </div>
 
         <div class="form-group row">
+            <label for="ket" class="col-sm-2 col-form-label">Keterangan</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" name="ket" value="<?= $jadwal['ket']; ?>">
+            </div>
+        </div>
+        <div class="form-group row">
             <label for="judul" class="col-sm-2 col-form-label"></label>
             <div class="col-sm-7">
                 <button class="btn btn-primary">Simpan</button>

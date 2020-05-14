@@ -37,7 +37,8 @@ class M_admin_home extends CI_Model
     {
         $data = [
             "nama_jadwal" => $this->input->post('nama_jadwal', TRUE),
-            "title_jadwal" => $this->input->post('title_jadwal', TRUE)
+            "title_jadwal" => $this->input->post('title_jadwal', TRUE),
+            "ket" => $this->input->post('ket', TRUE)
         ];
 
         $this->db->where('id', $this->input->post('id'));
@@ -100,6 +101,12 @@ class M_admin_home extends CI_Model
         $this->db->update('berita', $data);
     }
 
+    public function proses_hapus_berita($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('berita');
+    }
+
     public function tampil_data_isiberita()
     {
         return $this->db->get('isi_berita')->result_array();
@@ -108,5 +115,66 @@ class M_admin_home extends CI_Model
     public function ambil_id_isiberita($id)
     {
         return $this->db->get_where('isi_berita', ['id' => $id])->row_array();
+    }
+
+    public function proses_tambah_isib()
+    {
+        $data = [
+            "berita" => $this->input->post('berita', TRUE),
+            "link" => '#'
+        ];
+
+        $this->db->insert('isi_berita', $data);
+    }
+
+    public function proses_edit_isib()
+    {
+        $data = [
+            "berita"    => $this->input->post('berita', TRUE),
+            "link"      => '#'             // "link" => $this->input->post('link', TRUE)
+        ];
+
+        $this->db->where('id', $this->input->post('id'));
+        $this->db->update('isi_berita', $data);
+    }
+
+    public function ambil_id_isib($id)
+    {
+        return $this->db->get_where('isi_berita', ['id' => $id])->row_array();
+    }
+
+    public function hapus_isib($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('isi_berita');
+    }
+
+    public function slide1()
+    {
+        return $this->db->get('slide')->row_array();
+    }
+    public function slide2()
+    {
+        return $this->db->get('slide')->row_array();
+    }
+    public function slide3()
+    {
+        return $this->db->get('slide')->row_array();
+    }
+    public function slide4()
+    {
+        return $this->db->get('slide')->row_array();
+    }
+    public function slide5()
+    {
+        return $this->db->get('slide')->row_array();
+    }
+    public function slide6()
+    {
+        return $this->db->get('slide')->row_array();
+    }
+    public function slide7()
+    {
+        return $this->db->get('slide')->row_array();
     }
 }
