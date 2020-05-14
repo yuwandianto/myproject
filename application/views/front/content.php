@@ -375,62 +375,7 @@
     <!-- end container-fluid -->
 </section>
 <!-- available demos end -->
-<section class="section pb-0 bg-gradient-1" id="profil">
-    <div class="bg-shape">
-        <img src="<?= base_url('assets/templates/front/'); ?>img/bg-shape-light.png" alt="" class="img-fluid mx-auto d-block">
-    </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="title text-center mb-4">
-                    <h2 class="text-white">Cari Perguruan Tinggi/Program Studi Penerima KIP Kuliah
-                    </h2>
-                    <p class="text-white-50">Silahkan Ketik Nama Perguruan Tinggi/Program Studi
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-lg-10">
-                <div class="custom-form p-md-5 p-sm-1 bg-white">
-                    <div class="row">
-                        <div class="col-lg-12" >
-                            <div class="">
-                                <table class="table table-hover" >
-                                    <thead>
-                                        <tr>
-                                            <th class="nosort">#
-                                            </th>
-                                            <th>PERGURUAN TINGGI
-                                            </th>
-                                            <th>PRODI
-                                            </th>
-                                            <th>JENJANG
-                                            </th>
-                                            <th>AKREDITASI
-                                            </th>
-                                            <th class="nosort">AKSI
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="tempat-profil">
-                    </div>
-                    <!-- end row -->
-                    <!-- end row -->
-                    <!-- end row -->
-                </div>
-                <!-- end custom-form -->
-            </div>
-            <!-- end col -->
-        </div>
-        <!-- end row -->
-    </div>
-    <!-- end container-fluid -->
-</section>
+
 <!-- Modal informasi -->
 <!-- Modal -->
 <section class="modal fade" id="viewInformasi" tabindex="-1" role="dialog" aria-labelledby="informasi" aria-hidden="true">

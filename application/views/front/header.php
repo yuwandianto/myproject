@@ -25,10 +25,6 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#profil" class="nav-link">Profil Perguruan Tinggi
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a href="#kontak" class="nav-link">Kontak Kami
                             </a>
                         </li>
