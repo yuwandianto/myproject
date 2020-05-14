@@ -180,6 +180,7 @@
     <!-- end container-fluid -->
 </section>
 <!-- available demos end -->
+
 <section class="section pb-0 bg-gradient-1" id="profil">
     <div class="bg-shape">
         <img src="<?= base_url('assets/templates/front/'); ?>img/bg-shape-light.png" alt="" class="img-fluid mx-auto d-block">
