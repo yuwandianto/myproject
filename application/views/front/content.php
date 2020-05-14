@@ -374,9 +374,9 @@
             <div class="col-lg-10">
                 <div class="custom-form p-md-5 p-sm-1 bg-white">
                     <div class="row">
-                        <div class="col-lg-12" id="tempat-table-pt">
+                        <div class="col-lg-12" >
                             <div class="">
-                                <table class="table table-hover" id="table-pt">
+                                <table class="table table-hover" >
                                     <thead>
                                         <tr>
                                             <th class="nosort">#

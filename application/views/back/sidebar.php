@@ -15,7 +15,7 @@ $menu = $this->uri->segment(2);; ?>
   <!-- Divider -->
   <hr class="sidebar-divider">
   <div class="sidebar-heading">
-    Administrator
+    Menu Aplikasi
   </div>
 
   <!-- Nav Item - Dashboard -->
@@ -27,32 +27,49 @@ $menu = $this->uri->segment(2);; ?>
       <span>Dashboard</span></a>
   </li>
 
-  <!-- Divider -->
-  <hr class="sidebar-divider">
+  <li class="nav-item <?php if ($menu == 'sekolah' || $menu == 'jadwal' || $menu == 'slider' || $menu == 'berita') {
+                        echo 'active';
+                      } ?>">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+      <i class="fas fa-fw fa-wrench"></i>
+      <span>Pengaturan</span>
+    </a>
+    <div id="collapseUtilities" class="collapse <?php if ($menu == 'sekolah' || $menu == 'jadwal' || $menu == 'slider' || $menu == 'berita') {
+                                                  echo 'show';
+                                                } ?>" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+      <div class="bg-white py-2 collapse-inner rounded">
 
-  <!-- Heading -->
-  <div class="sidebar-heading">
-    Interface
-  </div>
+        <h6 class="collapse-header">Menu Pengaturan:</h6>
+        <a class="collapse-item <?php if ($menu == 'sekolah') {
+                                  echo 'active';
+                                } ?>" href="<?= base_url('home/sekolah'); ?>">Sekolah</a>
+        <a class="collapse-item <?php if ($menu == 'jadwal') {
+                                  echo 'active';
+                                } ?>" href="<?= base_url('home/jadwal'); ?>">Jadwal</a>
+        <a class="collapse-item <?php if ($menu == 'slider') {
+                                  echo 'active';
+                                } ?>" href="<?= base_url('home/slider'); ?>">SlideShow</a>
+        <a class="collapse-item <?php if ($menu == 'berita') {
+                                  echo 'active';
+                                } ?>" href="<?= base_url('home/berita'); ?>">Berita dan Pengumuman</a>
+
+        <h6 class="collapse-header">Setting Dashboard:</h6>
+        <a class="collapse-item" href="<?php echo base_url('home/slide') ?>">Slide</a>
+        <a class="collapse-item" href="<?php echo base_url('home/dashboard') ?>">Jadwal</a>
+        <a class="collapse-item" href="<?= base_url('Home/berita'); ?>">Berita</a>
+
+      </div>
+    </div>
+  </li>
 
   <!-- Nav Item - Pages Collapse Menu -->
 
   <!-- Nav Item - Tables -->
   <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-      <i class="fas fa-fw fa-cog"></i>
-      <span>Master Setting</span>
-    </a>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-      <div class="bg-white py-2 collapse-inner rounded">
-        <h6 class="collapse-header">Setting Dashboard:</h6>
-        <a class="collapse-item" href="<?php echo base_url('home/slide') ?>">Slide</a>
-        <a class="collapse-item" href="<?php echo base_url('home/dashboard') ?>">Jadwal</a>
-        <a class="collapse-item" href="<?= base_url('Home/berita'); ?>">Berita</a>
-      </div>
-    </div>
+    <a class="nav-link" href="<?php echo base_url('home/dashboard') ?>">
+      <i class="fas fa-fw fa-user-cog"></i>
+      <span>Setting</span></a>
   </li>
-
 
   <!-- Divider -->
   <hr class="sidebar-divider d-none d-md-block">

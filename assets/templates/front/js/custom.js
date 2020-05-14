@@ -150,7 +150,7 @@ function($) {
 
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker
-            .register('/kipk-sw.js')
+            .register('kipk-sw.js')
             .then(function() { console.log('KIPK-Service Worker: Service Worker Registered'); });
     }
 }(window.jQuery);

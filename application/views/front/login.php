@@ -15,7 +15,27 @@
 
     <script src="<?= base_url('assets/templates/front/'); ?>js/jquery.min.js"></script>
 
-
+    <style>
+        body {
+            padding-top: 0px ;
+        }
+        .misc-box {
+            box-shadow: 0px 0px 0px 0px #888888;
+            transition: 0.2s;
+            border-radius: 5px;
+        }
+        .misc-box:hover {
+            box-shadow: 0px 0px 5px 5px #888888;
+            border-radius: 10px;
+        }
+        .btn {
+            border-radius: 2px !important;
+            transition: 0.2s;
+        }
+        .btn:hover {
+            border: 1px solid red !important;
+        }
+    </style>
 
 </head>
 <div class="flash_data" data-flash_data="<?= $this->session->flashdata('error');?>"></div>
@@ -26,7 +46,7 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-12 text-center mb-3">
-                        <a href="/" title="Kembali ke Dashboard">
+                        <a href="<?= base_url();?>" title="Kembali ke Dashboard">
                             <img alt="" src="<?= base_url('assets/templates/front/'); ?>img/logo.png" class="logo-icon margin-r-10">
                         </a>
                         <h3>PENERIMAAN PESERTA DIDIK BARU</h3>
@@ -35,7 +55,7 @@
                     <div class="col-md-6 col-xs-12">
                         <div class="misc-box">
                             <form id="main-form" role="form" method="POST" action="<?= base_url('auth/login'); ?>">
-
+                            <input type="hidden" name="<?= $this->security->get_csrf_token_name();?>" value="<?= $this->security->get_csrf_hash() ;?>" style="display:none">
                                 <div class="form-group">
                                     <label for="username">NISN</label>
                                     <div class="input-group">
@@ -47,15 +67,24 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="password">PASSWORD</label>
-                                    <div class="input-group" id="show_hide_password">
+                                    <label for="tgl">TANGGAL LAHIR</label>
+                                    <div class="input-group">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-unlock-alt"></i> </span>
+                                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-calendar-alt"></i></span>
                                         </div>
-                                        <input id="password" name="password" type="password" placeholder="Password" class="form-control " required>
-                                        <div class="input-group-append">
-                                            <button class="input-group-text" type="button"><i class="fa fa-eye-slash" aria-hidden="true"></i></button>
-                                        </div>
+                                        <select style="margin-right: 10px" name="tgl_lahir" id="tgl_lahir" class="form-control col-sm-3" required>
+                                            <option value="">pilih tgl</option>
+                                            <?php foreach ($tgl as $tg) :?>
+                                                <option><?= $tg ;?></option>
+                                            <?php endforeach ;?>
+                                        </select>
+                                        <select style="margin-right: 10px" name="bln_lahir" id="bln_lahir" class="form-control col-sm-3" required>
+                                            <option value="">pilih bln</option>
+                                            <?php foreach ($bln as $bl) :?>
+                                                <option><?= $bl ;?></option>
+                                            <?php endforeach ;?>
+                                        </select>
+                                        <input type="number" name="thn_lahir" id="thn_lahir" class="form-control" required>
                                     </div>
                                 </div>
 
