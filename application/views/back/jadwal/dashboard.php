@@ -6,15 +6,16 @@
             <thead>
                 <th>Nama Jadwal</th>
                 <th>Title</th>
+                <th>Keterangan</th>
                 <th colspan="2">Setting</th>
             </thead>
             <tbody>
 
                 <td><?php echo $jadwal['nama_jadwal']; ?></td>
                 <td><?php echo $jadwal['title_jadwal']; ?></td>
+                <td><?php echo $jadwal['ket']; ?></td>
                 <td>
-                    <a href="<?php echo base_url() ?>Home/edit_data/<?php echo $jadwal['id']; ?>" class="badge badge-primary">edit</a>
-                    <a href="<?php echo base_url() ?>Home/hapus_data/<?php echo $jadwal['id']; ?>" class="badge badge-danger">hapus</a>
+                    <a href="<?php echo base_url() ?>Home/edit_data/<?php echo $jadwal['id']; ?>" class="badge badge-primary">Edit Semua</a>
                 </td>
             </tbody>
         </table>

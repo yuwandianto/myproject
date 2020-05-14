@@ -20,9 +20,9 @@
                                 <div class="col-lg-6 order-last-">
                                     <div class="home-title mo-mb-20 text-white">
                                         <h1 class="mb-4 text-white">
-                                            KARTU INDONESIA PINTAR KULIAH </h1>
+                                            <?php echo $slide['slide1']; ?> </h1>
                                         <p class="text-white-50 home-desc">
-                                            <p><span style="font-size: 14.4px;">Pemerintah Indonesia terus berkomitmen untuk fokus meningkatkan pembangunan Sumberdaya Manusia melalui berbagai upaya cerdas. Kartu Indonesia Pintar Kuliah (KIP-Kuliah) adalah salah satu upaya untuk membantu asa para siswa yang memiliki keterbatasan ekonomi tetapi berprestasi untuk melanjutkan studi di perguruan tinggi.</span><br></p>
+                                            <p><span style="font-size: 14.4px;"><?php echo $slide['title1']; ?></span><br></p>
                                         </p>
                                     </div>
                                 </div>
@@ -48,9 +48,9 @@
                                 <div class="col-lg-6 order-last-">
                                     <div class="home-title mo-mb-20 text-white">
                                         <h1 class="mb-4 text-white">
-                                            PERTANYAAN SEPUTAR KIP-KULIAH? </h1>
+                                            <?php echo $slide['slide2'] ?></h1>
                                         <p class="text-white-50 home-desc">
-                                            <p>Punya pertanyaan seputar KIP-Kuliah ? Frequently Asked Question (FAQ) dapat di akses di halaman&nbsp;<a href="panduan" style="background-color: rgb(255, 255, 0);">panduan</a><br></p>
+                                            <p><?php echo $slide['title2']; ?>&nbsp;<a href="panduan" style="background-color: rgb(255, 255, 0);">panduan</a><br></p>
                                         </p>
                                     </div>
                                 </div>
@@ -76,9 +76,11 @@
                                 <div class="col-lg-6 order-last-">
                                     <div class="home-title mo-mb-20 text-white">
                                         <h1 class="mb-4 text-white">
-                                            PENDAFTARAN KIP-KULIAH </h1>
+                                            <?php echo $slide['slide3']; ?> </h1>
                                         <p class="text-white-50 home-desc">
-                                            <p><span style="font-size: 14.4px;">Ayo mendaftar KIP Kuliah menggunakan&nbsp;</span><span style="font-weight: bolder; font-size: 14.4px;">Nomor Induk Siswa Nasional (NISN), Nomor Pokok Sekolah Nasional (NPSN)</span><span style="font-size: 14.4px;">, dan&nbsp;</span><span style="font-weight: bolder; font-size: 14.4px;">Nomor Induk Kependudukan (NIK)</span><span style="font-size: 14.4px;">.&nbsp;&nbsp;</span><br></p>
+                                            <p>
+                                                <!-- <span style="font-size: 14.4px;">Ayo mendaftar KIP Kuliah menggunakan&nbsp;</span> -->
+                                                <span style="font-weight: bolder; font-size: 14.4px;"><?php echo $slide['title3']; ?></span><span style="font-size: 14.4px;">, dan&nbsp;</span><span style="font-weight: bolder; font-size: 14.4px;">Nomor Induk Kependudukan (NIK)</span><span style="font-size: 14.4px;">.&nbsp;&nbsp;</span><br></p>
                                         </p>
                                     </div>
                                 </div>
@@ -104,9 +106,9 @@
                                 <div class="col-lg-6 order-last-">
                                     <div class="home-title mo-mb-20 text-white">
                                         <h1 class="mb-4 text-white">
-                                            AYO KULIAH </h1>
+                                            <?php echo $slide['slide4']; ?></h1>
                                         <p class="text-white-50 home-desc">
-                                            <p><span style="font-size: 14.4px;">KIP-Kuliah memberikan akses kepada seluruh siswa di Indonesia untuk menggapai cita-cita melalui pendidikan tinggi. Ayo segera cari kampus idamanmu. KIP-Kuliah berlaku untuk jalur seleksi masuk perguruan tinggi SNMPTN, SBMPTN, SNMPN, UMPN, Seleksi mandiri PTN dan seleksi mandiri PTS.</span><br></p>
+                                            <p><span style="font-size: 14.4px;"><?php echo $slide['title4']; ?></span><br></p>
                                         </p>
                                     </div>
                                 </div>
@@ -132,12 +134,9 @@
                                 <div class="col-lg-6 order-last-">
                                     <div class="home-title mo-mb-20 text-white">
                                         <h1 class="mb-4 text-white">
-                                            ADA KENDALA PENDAFTARAN? </h1>
+                                            <?php echo $slide['slide5']; ?> </h1>
                                         <p class="text-white-50 home-desc">
-                                            <p><span style="font-family: Nunito;">Apabila ada kendala NIK, NISN dan NPSN yang tidak terbaca oleh sistem KIP-Kuliah,&nbsp;Silahkan koordinasi dengan operator DAPODIK/EMIS di sekolah masing-masing untuk perbaikan sumber data secara mandiri oleh operator di&nbsp;</span>
-                                                <font color="#000000" style="background-color: rgb(255, 255, 0);"><a href="http://vervalpd.data.kemdikbud.go.id/" target="_blank">http://vervalpd.data.kemdikbud.go.id/</a>
-                                                    <font face="Nunito"><span style="font-size: 14.4px;"><a href="http://vervalpd.data.kemdikbud.go.id/" target="_blank"></a>&nbsp;&nbsp;</span></font>
-                                                </font>
+                                            <p><span style="font-family: Nunito;"><?php echo $slide['title5']; ?>
                                             </p>
                                             <p><span style="font-family: Nunito;">Bagi siswa lulusan silahkan lakukan pengajuan perbaikan di Verval Lulusan di alamat<a href="http://pd.data.kemdikbud.go.id/index.php?r=pengajuan/PengajuanLulusan" target="_blank">&nbsp;</a><span style="background-color: rgb(255, 255, 0); color: rgb(255, 255, 255);"><a href="http://pd.data.kemdikbud.go.id/index.php?r=pengajuan/PengajuanLulusan" target="_blank">http://pd.data.kemdikbud.go.id/index.php?r=pengajuan/PengajuanLulusan</a></span></span></p>
                                         </p>
@@ -165,9 +164,9 @@
                                 <div class="col-lg-6 order-last-">
                                     <div class="home-title mo-mb-20 text-white">
                                         <h1 class="mb-4 text-white">
-                                            KIP-KULIAH UNTUK PENDAFTAR SNMPN </h1>
+                                            <?php echo $slide['slide6']; ?> </h1>
                                         <p class="text-white-50 home-desc">
-                                            <p>Siswa pendaftar KIP-Kuliah yang mendaftar seleksi SNMPN diharapkan untuk segera melengkapi berkas dan memilih seleksi SNMPN di menu seleksi sistem pendaftaran KIP-Kuliah. Simpan KAP dan PIN yang diperoleh untuk kemudian dimasukkan ke sistem pendaftaran SNMPN. Selamat berjuang !</p>
+                                            <p><?php echo $slide['title6'] ?></p>
                                         </p>
                                     </div>
                                 </div>
@@ -193,9 +192,9 @@
                                 <div class="col-lg-6 order-last-">
                                     <div class="home-title mo-mb-20 text-white">
                                         <h1 class="mb-4 text-white">
-                                            KIP-KULIAH UNTUK SNMPTN </h1>
+                                            <?php echo $slide['slide7'] ?> </h1>
                                         <p class="text-white-50 home-desc">
-                                            <p>Pilihan jalur seleksi SNMPTN di sistem KIP-Kuliah akan dibuka mulai tanggal 2 Maret 2020. Siswa pendaftar SNMPTN diharapkan untuk segera melengkapi berkas dan memilih seleksi SNMPTN di Menu Seleksi sistem KIP-Kuliah.&nbsp; Semangat menggapai asa !</p>
+                                            <p><?php echo $slide['title7']; ?></p>
                                         </p>
                                     </div>
                                 </div>
@@ -309,7 +308,7 @@
                 <span>
                     <b>Keterangan:
                     </b>
-                    <br> Jadwal dapat berubah sewaktu-waktu
+                    <br> <?php echo $jadwal['ket']; ?>
                 </span>
             </div>
         </div>
@@ -323,9 +322,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="title text-center mb-3">
-                    <h2>Berita dan Pengumuman
+                    <h2><?php echo $berita['nama_berita']; ?>
                     </h2>
-                    <p class="text-muted">Lihat berita dan pengumuman terbaru dari PPDB.
+                    <p class="text-muted"><?php echo $berita['title_berita']; ?>
                     </p>
                 </div>
             </div>
@@ -339,33 +338,14 @@
             </div>
             <div class="col-lg-7">
                 <div class="features-content" id="tempat-informasi">
-                    <a data-toggle="modal" id="getInformasi" data-target="#viewInformasi" data-url="informasi/32" href="#.">
-                        <h4 class="mb-3">
-                            <i class="mdi mdi-album">
-                            </i> Pendaftaran Peserta didik Jalur Prestasi
-                        </h4>
-                    </a>
-
-                    <a data-toggle="modal" id="getInformasi" data-target="#viewInformasi" data-url="informasi/23" href="#.">
-                        <h4 class="mb-3">
-                            <i class="mdi mdi-album">
-                            </i> Prosedur Pendaftaran PPDB online
-                        </h4>
-                    </a>
-
-                    <a data-toggle="modal" id="getInformasi" data-target="#viewInformasi" data-url="informasi/22" href="#.">
-                        <h4 class="mb-3">
-                            <i class="mdi mdi-album">
-                            </i> Syarat Pendaftaran PPDB online
-                        </h4>
-                    </a>
-
-                    <a data-toggle="modal" id="getInformasi" data-target="#viewInformasi" data-url="informasi/21" href="#.">
-                        <h4 class="mb-3">
-                            <i class="mdi mdi-album">
-                            </i> Keunggulan PPDB Online
-                        </h4>
-                    </a>
+                    <?php foreach ($isi_b as $b) : ?>
+                        <a data-toggle="modal" id="getInformasi" data-target="#viewInformasi" data-url="informasi/32" href="#">
+                            <h4 class="mb-3">
+                                <i class="mdi mdi-album">
+                                </i> <?php echo $b['berita']; ?>
+                            </h4>
+                        </a>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>
