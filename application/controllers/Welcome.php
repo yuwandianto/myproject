@@ -17,7 +17,7 @@ class Welcome extends CI_Controller
 		$data['isi_b'] = $this->M_dashboard->tampil_data_isiberita();
 		$data['jadwal'] = $this->M_dashboard->tampil_data();
 		$data['j_tabel'] = $this->M_dashboard->tampil_data_tabel();
-		$data['slide'] = $this->M_dashboard->tampil_data_slide();
+		$data['slider'] = $this->M_dashboard->tampil_data_slider();
 		$data['title'] = 'PPDB';
 		$this->load->view('front/meta', $data);
 		$this->load->view('front/header');

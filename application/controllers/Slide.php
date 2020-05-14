@@ -7,6 +7,7 @@ class Slide extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_slide');
+        $this->load->library('form_validation');
     }
 
 

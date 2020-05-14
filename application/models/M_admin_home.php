@@ -177,4 +177,8 @@ class M_admin_home extends CI_Model
     {
         return $this->db->get('slide')->row_array();
     }
+    public function tampil_p()
+    {
+        return $this->db->get('tbl_registrasi')->result_array();
+    }
 }

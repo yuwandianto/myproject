@@ -45,18 +45,14 @@ $menu = $this->uri->segment(2);; ?>
                                 } ?>" href="<?= base_url('home/sekolah'); ?>">Sekolah</a>
         <a class="collapse-item <?php if ($menu == 'jadwal') {
                                   echo 'active';
-                                } ?>" href="<?= base_url('home/jadwal'); ?>">Jadwal</a>
+                                } ?>" href="<?= base_url('home/dashboard'); ?>">Jadwal</a>
         <a class="collapse-item <?php if ($menu == 'slider') {
                                   echo 'active';
-                                } ?>" href="<?= base_url('home/slider'); ?>">SlideShow</a>
+                                } ?>" href="<?= base_url('Home/slide'); ?>">SlideShow</a>
         <a class="collapse-item <?php if ($menu == 'berita') {
                                   echo 'active';
                                 } ?>" href="<?= base_url('home/berita'); ?>">Berita dan Pengumuman</a>
 
-        <h6 class="collapse-header">Setting Dashboard:</h6>
-        <a class="collapse-item" href="<?php echo base_url('home/slide') ?>">Slide</a>
-        <a class="collapse-item" href="<?php echo base_url('home/dashboard') ?>">Jadwal</a>
-        <a class="collapse-item" href="<?= base_url('Home/berita'); ?>">Berita</a>
 
       </div>
     </div>
@@ -66,9 +62,9 @@ $menu = $this->uri->segment(2);; ?>
 
   <!-- Nav Item - Tables -->
   <li class="nav-item">
-    <a class="nav-link" href="<?php echo base_url('home/dashboard') ?>">
+    <a class="nav-link" href="<?php echo base_url('pendaftar/data') ?>">
       <i class="fas fa-fw fa-user-cog"></i>
-      <span>Setting</span></a>
+      <span>Data Pendaftar</span></a>
   </li>
 
   <!-- Divider -->
