@@ -21,6 +21,6 @@ class M_dashboard extends Ci_Model
     }
     public function tampil_data_slider()
     {
-        return $this->db->get('slider')->result_array();
+        return $this->db->get('tbl_slide')->result_array();
     }
 }
