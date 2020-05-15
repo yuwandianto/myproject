@@ -17,7 +17,7 @@
                                             <h1 class="mb-4 text-white">
                                                 <?php echo $s['slide']; ?> </h1>
                                             <p class="text-white-50 home-desc">
-                                                <p><span style="font-size: 14.4px;"><?php echo $s['title']; ?></span><br></p>
+                                                <p><span style="font-size: 14.4px;"><?php echo $s['judul']; ?></span><br></p>
                                             </p>
                                         </div>
                                     </div>
