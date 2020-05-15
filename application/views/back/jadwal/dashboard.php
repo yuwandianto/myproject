@@ -45,7 +45,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table text-center table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table text-center table-bordered" cellspacing="0">
                     <thead class="thead-dark">
                         <th>#</th>
                         <th>Kegiatan</th>
@@ -68,7 +68,7 @@
                     </tbody>
                 <?php endforeach; ?>
                 </table>
-                </form>
+              
             </div>
         </div>
     </div>

@@ -1,6 +1,7 @@
 <div class="container-fluid">
 
-    <form action="<?php echo base_url('home/proses_edit_tabel') ?>" method="post">
+    <!-- <form action="<?php echo base_url('home/proses_edit_tabel') ?>" method="post"> -->
+    <?= form_open('home/proses_edit_tabel');?>
 
         <input type="hidden" name="id" value="<?php echo $judul['id']; ?>">
         <div class="form-group row">

@@ -1,6 +1,7 @@
 <div class="container-fluid">
 
-    <form action="<?php echo base_url('home/proses_tambah_tabel') ?>" method="post">
+    <!-- <form action="<?php echo base_url('home/proses_tambah_tabel') ?>" method="post"> -->
+    <?= form_open('home/proses_tambah_tabel') ;?>
         <div class="form-group row">
             <label for="kegiatan" class="col-sm-2 col-form-label">Kegiatan</label>
             <div class="col-sm-7">
