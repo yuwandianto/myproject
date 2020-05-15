@@ -48,7 +48,7 @@ $menu = $this->uri->segment(2);; ?>
                                 } ?>" href="<?= base_url('home/dashboard'); ?>">Jadwal</a>
         <a class="collapse-item <?php if ($menu == 'slider') {
                                   echo 'active';
-                                } ?>" href="<?= base_url('Home/slide'); ?>">SlideShow</a>
+                                } ?>" href="<?= base_url('Slide/slide'); ?>">SlideShow</a>
         <a class="collapse-item <?php if ($menu == 'berita') {
                                   echo 'active';
                                 } ?>" href="<?= base_url('home/berita'); ?>">Berita dan Pengumuman</a>
