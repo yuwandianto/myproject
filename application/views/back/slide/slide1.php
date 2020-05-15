@@ -29,4 +29,3 @@
     <a href="<?php echo base_url('Home/slide7'); ?>" class="btn btn-secondary">Setting Slide 7</a>
 
 </div>
-</div>

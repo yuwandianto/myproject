@@ -3,34 +3,34 @@
 <section class="bg-home bg-hexa" id="home">
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-            <li data-target="#carouselExampleControls" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleControls" data-slide-to="1" class=""></li>
-            <li data-target="#carouselExampleControls" data-slide-to="2" class=""></li>
-            <li data-target="#carouselExampleControls" data-slide-to="3" class=""></li>
-            <li data-target="#carouselExampleControls" data-slide-to="4" class=""></li>
-            <li data-target="#carouselExampleControls" data-slide-to="5" class=""></li>
-            <li data-target="#carouselExampleControls" data-slide-to="6" class=""></li>
+            <!-- Menetukan jumlah slidenya sekaligus lopping slider indikator -->
+            <?php for ($i = 0 ; $i < $jml_sld ; $i++) :?>
+                <li data-target="#carouselExampleControls" data-slide-to="<?= $i;?>" class="<?php if($i == '0') {echo 'active';};?>"></li>
+            <?php endfor ;?>
+            
         </ol>
         <div class="carousel-inner">
-            <div class="carousel-item active">
+            <!-- Looping data dari database -->
+           <?php $no = 1 ; foreach ($new_sld as $sl) :?>
+            <div class="carousel-item <?php if ($no++ == '1') {echo 'active';} ?>">
                 <div class="home-center">
                     <div class="home-desc-center">
                         <div class="container-fluid">
                             <div class="row align-items-center">
                                 <div class="col-lg-6 order-last-">
                                     <div class="home-title mo-mb-20 text-white">
-                                        <h1 class="mb-4 text-white">
-                                            <?php echo $slide['slide1']; ?> </h1>
-                                        <p class="text-white-50 home-desc">
-                                            <p><span style="font-size: 14.4px;"><?php echo $slide['title1']; ?></span><br></p>
+                                        <h3 class="mb-4 text-white">
+                                            <?php echo $sl->judul; ?> </h3>
+                                        <p class="text-white-70 home-desc" style="font-size:14pt;">
+                                            
+                                            <?php echo $sl->text; ?>
+                                            
                                         </p>
                                     </div>
                                 </div>
                                 <div class="col-xl-4 offset-xl-1 col-lg-5 offset-lg-1 col-md-7 order-first-" style="margin: 0 auto;">
                                     <div class="home-img position-relative">
-                                        <img src="<?= base_url('assets/templates/front/'); ?>uploads/informasi/dhTN5EAi9Irz2lc8kLsxtUm1HobFR0_tgl20200227000701.png" alt="" class="home-first-img">
-                                        <!-- <img src="<?= base_url('assets/templates/front/'); ?>img/kartu-kipk.png" alt="" class="home-second-img mx-auto d-block"> -->
-                                        <!--<img src="<?= base_url('assets/templates/front/'); ?>img/kartu-kipk.png" alt="" class="home-third-img">-->
+                                        <img src="<?= base_url('assets/images/').$sl->gambar;?>" alt="" class="home-first-img">
                                     </div>
                                 </div>
                             </div>
@@ -40,178 +40,8 @@
                     </div>
                 </div>
             </div>
-            <div class="carousel-item ">
-                <div class="home-center">
-                    <div class="home-desc-center">
-                        <div class="container-fluid">
-                            <div class="row align-items-center">
-                                <div class="col-lg-6 order-last-">
-                                    <div class="home-title mo-mb-20 text-white">
-                                        <h1 class="mb-4 text-white">
-                                            <?php echo $slide['slide2'] ?></h1>
-                                        <p class="text-white-50 home-desc">
-                                            <p><?php echo $slide['title2']; ?>&nbsp;<a href="panduan" style="background-color: rgb(255, 255, 0);">panduan</a><br></p>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 offset-xl-1 col-lg-5 offset-lg-1 col-md-7 order-first-" style="margin: 0 auto;">
-                                    <div class="home-img position-relative">
-                                        <img src="<?= base_url('assets/templates/front/'); ?>uploads/informasi/9E1Dcgm0KkdiUQyJG37wqhCMosTPbu_tgl20200227000725.png" alt="" class="home-first-img">
-                                        <!-- <img src="<?= base_url('assets/templates/front/'); ?>img/kartu-kipk.png" alt="" class="home-second-img mx-auto d-block"> -->
-                                        <!--<img src="<?= base_url('assets/templates/front/'); ?>img/kartu-kipk.png" alt="" class="home-third-img">-->
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end row -->
-                        </div>
-                        <!-- end container-fluid -->
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item ">
-                <div class="home-center">
-                    <div class="home-desc-center">
-                        <div class="container-fluid">
-                            <div class="row align-items-center">
-                                <div class="col-lg-6 order-last-">
-                                    <div class="home-title mo-mb-20 text-white">
-                                        <h1 class="mb-4 text-white">
-                                            <?php echo $slide['slide3']; ?> </h1>
-                                        <p class="text-white-50 home-desc">
-                                            <p>
-                                                <!-- <span style="font-size: 14.4px;">Ayo mendaftar KIP Kuliah menggunakan&nbsp;</span> -->
-                                                <span style="font-weight: bolder; font-size: 14.4px;"><?php echo $slide['title3']; ?></span><span style="font-size: 14.4px;">, dan&nbsp;</span><span style="font-weight: bolder; font-size: 14.4px;">Nomor Induk Kependudukan (NIK)</span><span style="font-size: 14.4px;">.&nbsp;&nbsp;</span><br></p>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 offset-xl-1 col-lg-5 offset-lg-1 col-md-7 order-first-" style="margin: 0 auto;">
-                                    <div class="home-img position-relative">
-                                        <img src="<?= base_url('assets/templates/front/'); ?>uploads/informasi/yJUINulhqtOgGxozKfBbFAncw9054j_tgl20200227000800.png" alt="" class="home-first-img">
-                                        <!-- <img src="<?= base_url('assets/templates/front/'); ?>img/kartu-kipk.png" alt="" class="home-second-img mx-auto d-block"> -->
-                                        <!--<img src="<?= base_url('assets/templates/front/'); ?>img/kartu-kipk.png" alt="" class="home-third-img">-->
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end row -->
-                        </div>
-                        <!-- end container-fluid -->
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item ">
-                <div class="home-center">
-                    <div class="home-desc-center">
-                        <div class="container-fluid">
-                            <div class="row align-items-center">
-                                <div class="col-lg-6 order-last-">
-                                    <div class="home-title mo-mb-20 text-white">
-                                        <h1 class="mb-4 text-white">
-                                            <?php echo $slide['slide4']; ?></h1>
-                                        <p class="text-white-50 home-desc">
-                                            <p><span style="font-size: 14.4px;"><?php echo $slide['title4']; ?></span><br></p>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 offset-xl-1 col-lg-5 offset-lg-1 col-md-7 order-first-" style="margin: 0 auto;">
-                                    <div class="home-img position-relative">
-                                        <img src="<?= base_url('assets/templates/front/'); ?>uploads/informasi/EsjdG0orbiaQTReJS8gOnxf24HNmkq_tgl20200227000813.png" alt="" class="home-first-img">
-                                        <!-- <img src="<?= base_url('assets/templates/front/'); ?>img/kartu-kipk.png" alt="" class="home-second-img mx-auto d-block"> -->
-                                        <!--<img src="<?= base_url('assets/templates/front/'); ?>img/kartu-kipk.png" alt="" class="home-third-img">-->
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end row -->
-                        </div>
-                        <!-- end container-fluid -->
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item ">
-                <div class="home-center">
-                    <div class="home-desc-center">
-                        <div class="container-fluid">
-                            <div class="row align-items-center">
-                                <div class="col-lg-6 order-last-">
-                                    <div class="home-title mo-mb-20 text-white">
-                                        <h1 class="mb-4 text-white">
-                                            <?php echo $slide['slide5']; ?> </h1>
-                                        <p class="text-white-50 home-desc">
-                                            <p><span style="font-family: Nunito;"><?php echo $slide['title5']; ?>
-                                            </p>
-                                            <p><span style="font-family: Nunito;">Bagi siswa lulusan silahkan lakukan pengajuan perbaikan di Verval Lulusan di alamat<a href="http://pd.data.kemdikbud.go.id/index.php?r=pengajuan/PengajuanLulusan" target="_blank">&nbsp;</a><span style="background-color: rgb(255, 255, 0); color: rgb(255, 255, 255);"><a href="http://pd.data.kemdikbud.go.id/index.php?r=pengajuan/PengajuanLulusan" target="_blank">http://pd.data.kemdikbud.go.id/index.php?r=pengajuan/PengajuanLulusan</a></span></span></p>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 offset-xl-1 col-lg-5 offset-lg-1 col-md-7 order-first-" style="margin: 0 auto;">
-                                    <div class="home-img position-relative">
-                                        <img src="<?= base_url('assets/templates/front/'); ?>uploads/informasi/Os0LGgkB3DwIlMqytTdPfeNv1cxio8_tgl20200228125607.png" alt="" class="home-first-img">
-                                        <!-- <img src="<?= base_url('assets/templates/front/'); ?>img/kartu-kipk.png" alt="" class="home-second-img mx-auto d-block"> -->
-                                        <!--<img src="<?= base_url('assets/templates/front/'); ?>img/kartu-kipk.png" alt="" class="home-third-img">-->
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end row -->
-                        </div>
-                        <!-- end container-fluid -->
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item ">
-                <div class="home-center">
-                    <div class="home-desc-center">
-                        <div class="container-fluid">
-                            <div class="row align-items-center">
-                                <div class="col-lg-6 order-last-">
-                                    <div class="home-title mo-mb-20 text-white">
-                                        <h1 class="mb-4 text-white">
-                                            <?php echo $slide['slide6']; ?> </h1>
-                                        <p class="text-white-50 home-desc">
-                                            <p><?php echo $slide['title6'] ?></p>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 offset-xl-1 col-lg-5 offset-lg-1 col-md-7 order-first-" style="margin: 0 auto;">
-                                    <div class="home-img position-relative">
-                                        <img src="<?= base_url('assets/templates/front/'); ?>uploads/informasi/fS4sOT9QMueGED0UbwkndatCijKLq2_tgl20200229085723.png" alt="" class="home-first-img">
-                                        <!-- <img src="<?= base_url('assets/templates/front/'); ?>img/kartu-kipk.png" alt="" class="home-second-img mx-auto d-block"> -->
-                                        <!--<img src="<?= base_url('assets/templates/front/'); ?>img/kartu-kipk.png" alt="" class="home-third-img">-->
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end row -->
-                        </div>
-                        <!-- end container-fluid -->
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item ">
-                <div class="home-center">
-                    <div class="home-desc-center">
-                        <div class="container-fluid">
-                            <div class="row align-items-center">
-                                <div class="col-lg-6 order-last-">
-                                    <div class="home-title mo-mb-20 text-white">
-                                        <h1 class="mb-4 text-white">
-                                            <?php echo $slide['slide7'] ?> </h1>
-                                        <p class="text-white-50 home-desc">
-                                            <p><?php echo $slide['title7']; ?></p>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 offset-xl-1 col-lg-5 offset-lg-1 col-md-7 order-first-" style="margin: 0 auto;">
-                                    <div class="home-img position-relative">
-                                        <img src="<?= base_url('assets/templates/front/'); ?>uploads/informasi/M5TRiFNAs2r0EJ7CwqnaUb48mO3uhc_tgl20200229091123.png" alt="" class="home-first-img">
-                                        <!-- <img src="<?= base_url('assets/templates/front/'); ?>img/kartu-kipk.png" alt="" class="home-second-img mx-auto d-block"> -->
-                                        <!--<img src="<?= base_url('assets/templates/front/'); ?>img/kartu-kipk.png" alt="" class="home-third-img">-->
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end row -->
-                        </div>
-                        <!-- end container-fluid -->
-                    </div>
-                </div>
-            </div>
+            <?php endforeach ;?>
+
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>

@@ -30,4 +30,3 @@
     <a href="<?php echo base_url('Home/slide6'); ?>" class="btn btn-info">Setting Slide 6</a>
 
 </div>
-</div>
