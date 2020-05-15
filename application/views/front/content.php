@@ -1,26 +1,6 @@
 <!-- Content start -->
 <!-- home start -->
 <section class="bg-home bg-hexa" id="home">
-    <?php foreach ($slider as $s) : ?>
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleControls" data-slide-to="1" class=""></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="home-center">
-                        <div class="home-desc-center">
-                            <div class="container-fluid">
-                                <div class="row align-items-center">
-                                    <div class="col-lg-6 order-last-">
-                                        <div class="home-title mo-mb-20 text-white">
-                                            <h1 class="mb-4 text-white">
-                                                <?php echo $s['slide']; ?> </h1>
-                                            <p class="text-white-50 home-desc">
-                                                <p><span style="font-size: 14.4px;"><?php echo $s['judul']; ?></span><br></p>
-                                            </p>
-                                        </div>
-
 
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -245,4 +225,3 @@
     </div>
     <!-- end container-fluid -->
 </section>
-<!-- cta end -->
