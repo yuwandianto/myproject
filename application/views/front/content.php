@@ -5,53 +5,52 @@
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <!-- Menetukan jumlah slidenya sekaligus lopping slider indikator -->
-            <?php for ($i = 0 ; $i < $jml_sld ; $i++) :?>
-                <li data-target="#carouselExampleControls" data-slide-to="<?= $i;?>" class="<?php if($i == '0') {echo 'active';};?>"></li>
-            <?php endfor ;?>
-            
+            <?php for ($i = 0; $i < $jml_sld; $i++) : ?>
+                <li data-target="#carouselExampleControls" data-slide-to="<?= $i; ?>" class="<?php if ($i == '0') { echo 'active';} ?>"></li>
+            <?php endfor; ?>
         </ol>
         <div class="carousel-inner">
             <!-- Looping data dari database -->
-           <?php $no = 1 ; foreach ($new_sld as $sl) :?>
-            <div class="carousel-item <?php if ($no++ == '1') {echo 'active';} ?>">
-                <div class="home-center">
-                    <div class="home-desc-center">
-                        <div class="container-fluid">
-                            <div class="row align-items-center">
-                                <div class="col-lg-6 order-last-">
-                                    <div class="home-title mo-mb-20 text-white">
-                                        <h3 class="mb-4 text-white">
-                                            <?php echo $sl->judul; ?> </h3>
-                                        <p class="text-white-70 home-desc" style="font-size:14pt;">
-                                            
-                                            <?php echo $sl->text; ?>
-                                            
-                                        </p>
+            <?php $no = 1; foreach ($new_sld as $sl) : ?>
+                <div class="carousel-item <?php if ($no++ == '1') { echo 'active';  } ?>">
+                    <div class="home-center">
+                        <div class="home-desc-center">
+                            <div class="container-fluid">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-6 order-last-">
+                                        <div class="home-title mo-mb-20 text-white">
+                                            <h3 class="mb-4 text-white">
+                                                <?php echo $sl->judul; ?> </h3>
+                                            <p class="text-white-70 home-desc" style="font-size:14pt;">
+
+                                                <?php echo $sl->text; ?>
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 offset-xl-1 col-lg-5 offset-lg-1 col-md-7 order-first-" style="margin: 0 auto;">
+                                        <div class="home-img position-relative">
+                                            <img src="<?= base_url('assets/images/') . $sl->gambar; ?>" alt="" class="home-first-img">
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-xl-4 offset-xl-1 col-lg-5 offset-lg-1 col-md-7 order-first-" style="margin: 0 auto;">
-                                    <div class="home-img position-relative">
-                                        <img src="<?= base_url('assets/images/').$sl->gambar;?>" alt="" class="home-first-img">
-                                    </div>
-                                </div>
+                                <!-- end row -->
                             </div>
-                            <!-- end row -->
+                            <!-- end container-fluid -->
                         </div>
-                        <!-- end container-fluid -->
                     </div>
                 </div>
-            </div>
-            <?php endforeach ;?>
+            <?php endforeach; ?>
 
         </div>
-    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
 </section>
 <!-- home end -->

@@ -148,35 +148,6 @@ class M_admin_home extends CI_Model
         $this->db->where('id', $id);
         $this->db->delete('isi_berita');
     }
-
-    public function slide1()
-    {
-        return $this->db->get('slide')->row_array();
-    }
-    public function slide2()
-    {
-        return $this->db->get('slide')->row_array();
-    }
-    public function slide3()
-    {
-        return $this->db->get('slide')->row_array();
-    }
-    public function slide4()
-    {
-        return $this->db->get('slide')->row_array();
-    }
-    public function slide5()
-    {
-        return $this->db->get('slide')->row_array();
-    }
-    public function slide6()
-    {
-        return $this->db->get('slide')->row_array();
-    }
-    public function slide7()
-    {
-        return $this->db->get('slide')->row_array();
-    }
     public function tampil_p()
     {
         return $this->db->get('tbl_registrasi')->result_array();
