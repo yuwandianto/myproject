@@ -17,14 +17,13 @@ class Welcome extends CI_Controller
 		$data['isi_b'] = $this->M_dashboard->tampil_data_isiberita();
 		$data['jadwal'] = $this->M_dashboard->tampil_data();
 		$data['j_tabel'] = $this->M_dashboard->tampil_data_tabel();
-		$data['slide'] = $this->M_dashboard->tampil_data_slide();
+		
 
 		// ambil data dari database
 		$data['new_sld'] = $this->db->get('tbl_slide')->result();
 		// jumlah baris di database
 		$data['jml_sld'] = $this->db->get('tbl_slide')->num_rows();
 		
-
 		$data['title'] = 'PPDB';
 		$this->load->view('front/meta', $data);
 		$this->load->view('front/header');

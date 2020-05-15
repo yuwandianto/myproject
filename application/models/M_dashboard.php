@@ -19,8 +19,8 @@ class M_dashboard extends Ci_Model
     {
         return $this->db->get('isi_berita')->result_array();
     }
-    public function tampil_data_slide()
+    public function tampil_data_slider()
     {
-        return $this->db->get('slide')->row_array();
+        return $this->db->get('slider')->result_array();
     }
 }
