@@ -152,4 +152,14 @@ class M_admin_home extends CI_Model
     {
         return $this->db->get('tbl_registrasi')->result_array();
     }
+
+    public function tampil_j()
+    {
+        return $this->db->get('jurusan')->result_array();
+    }
+
+    public function tampil_sekolah()
+    {
+        return $this->db->get('tbl_sekolah')->result_array();
+    }
 }

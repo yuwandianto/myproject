@@ -21,7 +21,6 @@
                         <td><?php echo $berita['title_berita']; ?></td>
                         <td>
                             <a href="<?php echo base_url() ?>Home/edit_berita/<?php echo $berita['id']; ?>" class="badge badge-primary">edit</a>
-                            <a href="<?php echo base_url() ?>Home/hapus_berita/<?php echo $berita['id']; ?>" class="badge badge-danger">hapus</a>
                         </td>
                     </tbody>
                 </table>

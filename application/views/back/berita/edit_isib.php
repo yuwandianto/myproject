@@ -17,6 +17,5 @@
             <button class="btn btn-primary">Simpan</button>
         </div>
     </div>
-    <?php echo form_close() ?>
 
 </div>

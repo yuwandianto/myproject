@@ -15,7 +15,6 @@
                         <a href="<?php echo base_url('slide/tambah_slide'); ?>" class="btn btn-sm btn-primary"><i class="fas fa-user-plus"></i> Tambah Data</a>
             </div>
             <div class="card-body">
-                <?php echo $this->session->flashdata('message'); ?>
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped text-center" id="dataTable" width="100%" cellspacing="0">
                         <thead>
@@ -37,7 +36,7 @@
                                     <td><?php echo $no++ ?></td>
                                     <td><?php echo $s['judul']; ?></td>
                                     <td><?php echo $s['text']; ?></td>
-                                    <td><?php echo $s['gambar']; ?></td>
+                                    <td><img src="<?php echo base_url() . '/assets/images/' . $s['gambar']; ?>" alt="..." height="70">
                                     <td>
                                         <a href="<?php echo base_url() ?>Slide/edit_slide/<?php echo $s['id']; ?>" class="badge badge-primary">Edit</a>
 

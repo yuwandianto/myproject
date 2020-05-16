@@ -170,4 +170,26 @@ class Home extends CI_Controller
 		$this->M_admin_home->hapus_isib($id);
 		redirect('home/berita');
 	}
+
+	public function jurusan()
+	{
+		$data['jrs'] = $this->M_admin_home->tampil_j();
+		$data['title'] = 'Jurusan';
+		$this->load->view('back/header', $data);
+		$this->load->view('back/sidebar');
+		$this->load->view('back/topbar');
+		$this->load->view('back/jurusan/dashboard', $data);
+		$this->load->view('back/footer');
+	}
+
+	public function sekolah()
+	{
+		$data['title'] = 'Jurusan';
+		$data['sekolah'] = $this->M_admin_home->tampil_sekolah();
+		$this->load->view('back/header', $data);
+		$this->load->view('back/sidebar');
+		$this->load->view('back/topbar');
+		$this->load->view('back/sekolah/dashboard', $data);
+		$this->load->view('back/footer');
+	}
 }
