@@ -199,13 +199,13 @@ class Siswa extends CI_Controller {
 
         $pdf = new FPDF('P', 'mm', 'A4');
         $pdf->AddPage();
-        $pdf->SetFont('Arial','B',16);
+        $pdf->SetMargins(10,5,10);
         $pdf->Image('./assets/images/logo_prov.png',10,10,30);
         $pdf->Cell(30,0,'',0);
-
+        $pdf->SetFont('Times','B',16);
         $pdf->Cell(160,8,'PEMERINTAH PROVINSI KALIMANTAN SELATAN',0, 0 , 'C');
         $pdf->Ln(6);
-        $pdf->SetFont('Arial','B',14);
+        $pdf->SetFont('Times','B',14);
         $pdf->Cell(30,0,'',0);
         $pdf->Cell(160,7,'DINAS PENDIDIKAN DAN KEBUDAYAAN',0 , 0 , 'C');
         $pdf->Ln(5);
@@ -213,218 +213,220 @@ class Siswa extends CI_Controller {
         $pdf->Cell(160,7,'SMA NEGERI 1 JORONG',0 , 0 , 'C');
         $pdf->Ln(5);
         $pdf->Cell(30,0,'',0);
-        $pdf->SetFont('Arial','',10);
+        $pdf->SetFont('Times','',10);
         $pdf->Cell(160,6,'Jl A Yani Km 96 Jorong Kecamatan Jorong Tanah Laut',0,0,'C');
-        $pdf->Ln(9);
+        $pdf->Ln(7);
+        $pdf->Cell(190,0,'',1);
+        $pdf->Ln(0.5);
         $pdf->Cell(190,0,'',1);
 
         $pdf->Ln(5);
-        $pdf->SetFont('Arial','BU',14);
+        $pdf->SetFont('Times','BU',14);
         $pdf->Cell(190,0,'BUKTI PENDAFTARAN',0,0,'C');
         $pdf->Ln(10);
-        $pdf->SetFont('Arial','',12);
-        $pdf->Cell(190,5,'Saya yang bertanda tangan di bawah ini:',0,0,'J');
-        $pdf->Ln(8);
-        $pdf->Cell(10,5,'');
-        $pdf->Cell(50,5,'Nama',0,'J');
-        $pdf->Cell(5,5,':',0,'J');
-        $pdf->Cell(125,5,$siswa['nama'],0,'J');
+        $pdf->SetFont('Times','',11);
+        $pdf->Cell(190,4,'Saya yang bertanda tangan di bawah ini:',0,0,'J');
         $pdf->Ln(5);
-        $pdf->Cell(10,5,'');
-        $pdf->Cell(50,5,'NISN',0,'J');
-        $pdf->Cell(5,5,':',0,'J');
-        $pdf->Cell(125,5,$siswa['nisn'],0,'J');
+        $pdf->Cell(10,4,'');
+        $pdf->Cell(50,4,'Nama',0,'J');
+        $pdf->Cell(5,4,':',0,'J');
+        $pdf->Cell(125,4,$siswa['nama'],0,'J');
         $pdf->Ln(5);
-        $pdf->Cell(10,5,'');
-        $pdf->Cell(50,5,'Tempat, Tgl Lahir',0,'J');
-        $pdf->Cell(5,5,':',0,'J');
-        $pdf->Cell(125,5,$siswa['tempat_lahir'].', '.$siswa['tgl_lahir'].' - '.$siswa['bln_lahir'].' - '.$siswa['thn_lahir'],0,'J');
+        $pdf->Cell(10,4,'');
+        $pdf->Cell(50,4,'NISN',0,'J');
+        $pdf->Cell(5,4,':',0,'J');
+        $pdf->Cell(125,4,$siswa['nisn'],0,'J');
         $pdf->Ln(5);
-        $pdf->Cell(10,5,'');
-        $pdf->Cell(50,5,'Jenis Kelamin',0,'J');
-        $pdf->Cell(5,5,':',0,'J');
-        $pdf->Cell(125,5,$jk,0,'J');
+        $pdf->Cell(10,4,'');
+        $pdf->Cell(50,4,'Tempat, Tgl Lahir',0,'J');
+        $pdf->Cell(5,4,':',0,'J');
+        $pdf->Cell(125,4,$siswa['tempat_lahir'].', '.$siswa['tgl_lahir'].' - '.$siswa['bln_lahir'].' - '.$siswa['thn_lahir'],0,'J');
         $pdf->Ln(5);
-        $pdf->Cell(10,5,'');
-        $pdf->Cell(50,5,'Agama',0,'J');
-        $pdf->Cell(5,5,':',0,'J');
-        $pdf->Cell(125,5,$siswa['agama'],0,'J');
+        $pdf->Cell(10,4,'');
+        $pdf->Cell(50,4,'Jenis Kelamin',0,'J');
+        $pdf->Cell(5,4,':',0,'J');
+        $pdf->Cell(125,4,$jk,0,'J');
         $pdf->Ln(5);
-        $pdf->Cell(10,5,'');
-        $pdf->Cell(50,5,'Sekolah Asal',0,'J');
-        $pdf->Cell(5,5,':',0,'J');
-        $pdf->Cell(125,5,$siswa['sekolah_asal'],0,'J');
+        $pdf->Cell(10,4,'');
+        $pdf->Cell(50,4,'Agama',0,'J');
+        $pdf->Cell(5,4,':',0,'J');
+        $pdf->Cell(125,4,$siswa['agama'],0,'J');
         $pdf->Ln(5);
-        $pdf->Cell(10,5,'');
-        $pdf->Cell(50,5,'Tahun Lulus',0,'J');
-        $pdf->Cell(5,5,':',0,'J');
-        $pdf->Cell(125,5,$siswa['tahun_lulus'],0,'J');
+        $pdf->Cell(10,4,'');
+        $pdf->Cell(50,4,'Sekolah Asal',0,'J');
+        $pdf->Cell(5,4,':',0,'J');
+        $pdf->Cell(125,4,$siswa['sekolah_asal'],0,'J');
         $pdf->Ln(5);
-        $pdf->Cell(10,5,'');
-        $pdf->Cell(50,5,'Penerima KIP',0,'J');
-        $pdf->Cell(5,5,':',0,'J');
-        $pdf->Cell(125,5,$siswa['penerima_kip'],0,'J');
+        $pdf->Cell(10,4,'');
+        $pdf->Cell(50,4,'Tahun Lulus',0,'J');
+        $pdf->Cell(5,4,':',0,'J');
+        $pdf->Cell(125,4,$siswa['tahun_lulus'],0,'J');
         $pdf->Ln(5);
-        $pdf->Cell(10,5,'');
-        $pdf->Cell(50,5,'Alamat',0,'J');
-        $pdf->Cell(5,5,':',0,'J');
-        $pdf->MultiCell(125,5,$siswa['alamat_jalan'].' RT '.$siswa['rt'].' RW '.$siswa['rw'].' Desa '.$siswa['desa'].' Kecamatan '.$siswa['kecamatan'],0,'J');
+        $pdf->Cell(10,4,'');
+        $pdf->Cell(50,4,'Penerima KIP',0,'J');
+        $pdf->Cell(5,4,':',0,'J');
+        $pdf->Cell(125,4,$siswa['penerima_kip'],0,'J');
+        $pdf->Ln(5);
+        $pdf->Cell(10,4,'');
+        $pdf->Cell(50,4,'Alamat',0,'J');
+        $pdf->Cell(5,4,':',0,'J');
+        $pdf->MultiCell(125,4,$siswa['alamat_jalan'].' RT '.$siswa['rt'].' RW '.$siswa['rw'].' Desa '.$siswa['desa'].' Kecamatan '.$siswa['kecamatan'],0,'J');
         $pdf->Ln(0);
-        $pdf->Cell(10,5,'');
-        $pdf->Cell(50,5,'Pilihan Jurusan 2',0,'J');
-        $pdf->Cell(5,5,':',0,'J');
-        $pdf->Cell(125,5,'',0,'J');
+        $pdf->Cell(10,4,'');
+        $pdf->Cell(50,4,'Pilihan Jurusan 1',0,'J');
+        $pdf->Cell(5,4,':',0,'J');
+        $pdf->Cell(125,4,'',0,'J');
         $pdf->Ln(5);
-        $pdf->Cell(10,5,'');
-        $pdf->Cell(50,5,'Pilihan Jurusan 1',0,'J');
-        $pdf->Cell(5,5,':',0,'J');
-        $pdf->Cell(125,5,'',0,'J');
+        $pdf->Cell(10,4,'');
+        $pdf->Cell(50,4,'Pilihan Jurusan 2',0,'J');
+        $pdf->Cell(5,4,':',0,'J');
+        $pdf->Cell(125,4,'',0,'J');
         
         $pdf->Ln(7);
-        $pdf->SetFont('Arial','BU',12);
+        $pdf->SetFont('Times','BU',12);
         $pdf->Cell(190,5,'Nilai Raport',0,0,'C');
         
 
         $pdf->Ln(7);
-        $pdf->Cell(10,5,'');
-        $pdf->SetFont('Arial','',12);
-        $pdf->Cell(65,5,'Semester 1',0,'J');
-        $pdf->Cell(65,5,'Semester 2',0,'J');
-        $pdf->Cell(65,5,'Semester 3',0,'J');
+        $pdf->Cell(10,4,'');
+        $pdf->SetFont('Times','',11);
+        $pdf->Cell(65,4,'Semester 1',0,'J');
+        $pdf->Cell(65,4,'Semester 2',0,'J');
+        $pdf->Cell(65,4,'Semester 3',0,'J');
 
         $pdf->Ln(5);
-        $pdf->Cell(10,5,'');
-        $pdf->Cell(40,5,'Bahasa Indonesia',0,'J');
-        $pdf->Cell(5,5,':',0,'J');
-        $pdf->Cell(20,5,$siswa['bin1'],0,'J');
-        $pdf->Cell(40,5,'Bahasa Indonesia',0,'J');
-        $pdf->Cell(5,5,':',0,'J');
-        $pdf->Cell(20,5,$siswa['bin2'],0,'J');
-        $pdf->Cell(40,5,'Bahasa Indonesia',0,'J');
-        $pdf->Cell(5,5,':',0,'J');
-        $pdf->Cell(20,5,$siswa['bin3'],0,'J');
+        $pdf->Cell(10,4,'');
+        $pdf->Cell(40,4,'Bahasa Indonesia',0,'J');
+        $pdf->Cell(5,4,':',0,'J');
+        $pdf->Cell(20,4,$siswa['bin1'],0,'J');
+        $pdf->Cell(40,4,'Bahasa Indonesia',0,'J');
+        $pdf->Cell(5,4,':',0,'J');
+        $pdf->Cell(20,4,$siswa['bin2'],0,'J');
+        $pdf->Cell(40,4,'Bahasa Indonesia',0,'J');
+        $pdf->Cell(5,4,':',0,'J');
+        $pdf->Cell(20,4,$siswa['bin3'],0,'J');
 
         $pdf->Ln(5);
-        $pdf->Cell(10,5,'');
-        $pdf->Cell(40,5,'Matematika',0,'J');
-        $pdf->Cell(5,5,':',0,'J');
-        $pdf->Cell(20,5,$siswa['mtk1'],0,'J');
-        $pdf->Cell(40,5,'Matematika',0,'J');
-        $pdf->Cell(5,5,':',0,'J');
-        $pdf->Cell(20,5,$siswa['mtk2'],0,'J');
-        $pdf->Cell(40,5,'Matematika',0,'J');
-        $pdf->Cell(5,5,':',0,'J');
-        $pdf->Cell(20,5,$siswa['mtk3'],0,'J');
+        $pdf->Cell(10,4,'');
+        $pdf->Cell(40,4,'Matematika',0,'J');
+        $pdf->Cell(5,4,':',0,'J');
+        $pdf->Cell(20,4,$siswa['mtk1'],0,'J');
+        $pdf->Cell(40,4,'Matematika',0,'J');
+        $pdf->Cell(5,4,':',0,'J');
+        $pdf->Cell(20,4,$siswa['mtk2'],0,'J');
+        $pdf->Cell(40,4,'Matematika',0,'J');
+        $pdf->Cell(5,4,':',0,'J');
+        $pdf->Cell(20,4,$siswa['mtk3'],0,'J');
 
         $pdf->Ln(5);
-        $pdf->Cell(10,5,'');
-        $pdf->Cell(40,5,'Bahasa Inggris',0,'J');
-        $pdf->Cell(5,5,':',0,'J');
-        $pdf->Cell(20,5,$siswa['big1'],0,'J');
-        $pdf->Cell(40,5,'Bahasa Inggris',0,'J');
-        $pdf->Cell(5,5,':',0,'J');
-        $pdf->Cell(20,5,$siswa['big2'],0,'J');
-        $pdf->Cell(40,5,'Bahasa Inggris',0,'J');
-        $pdf->Cell(5,5,':',0,'J');
-        $pdf->Cell(20,5,$siswa['big3'],0,'J');
+        $pdf->Cell(10,4,'');
+        $pdf->Cell(40,4,'Bahasa Inggris',0,'J');
+        $pdf->Cell(5,4,':',0,'J');
+        $pdf->Cell(20,4,$siswa['big1'],0,'J');
+        $pdf->Cell(40,4,'Bahasa Inggris',0,'J');
+        $pdf->Cell(5,4,':',0,'J');
+        $pdf->Cell(20,4,$siswa['big2'],0,'J');
+        $pdf->Cell(40,4,'Bahasa Inggris',0,'J');
+        $pdf->Cell(5,4,':',0,'J');
+        $pdf->Cell(20,4,$siswa['big3'],0,'J');
 
         $pdf->Ln(5);
-        $pdf->Cell(10,5,'');
-        $pdf->Cell(40,5,'IPA',0,'J');
-        $pdf->Cell(5,5,':',0,'J');
-        $pdf->Cell(20,5,$siswa['ipa1'],0,'J');
-        $pdf->Cell(40,5,'IPA',0,'J');
-        $pdf->Cell(5,5,':',0,'J');
-        $pdf->Cell(20,5,$siswa['ipa2'],0,'J');
-        $pdf->Cell(40,5,'IPA',0,'J');
-        $pdf->Cell(5,5,':',0,'J');
-        $pdf->Cell(20,5,$siswa['ipa3'],0,'J');
+        $pdf->Cell(10,4,'');
+        $pdf->Cell(40,4,'IPA',0,'J');
+        $pdf->Cell(5,4,':',0,'J');
+        $pdf->Cell(20,4,$siswa['ipa1'],0,'J');
+        $pdf->Cell(40,4,'IPA',0,'J');
+        $pdf->Cell(5,4,':',0,'J');
+        $pdf->Cell(20,4,$siswa['ipa2'],0,'J');
+        $pdf->Cell(40,4,'IPA',0,'J');
+        $pdf->Cell(5,4,':',0,'J');
+        $pdf->Cell(20,4,$siswa['ipa3'],0,'J');
         
         $pdf->Ln(5);
-        $pdf->Cell(10,5,'');
-        $pdf->Cell(65,5,'Semester 4',0,'J');
-        $pdf->Cell(65,5,'Semester 5',0,'J');
+        $pdf->Cell(10,4,'');
+        $pdf->Cell(65,4,'Semester 4',0,'J');
+        $pdf->Cell(65,4,'Semester 5',0,'J');
         
         $pdf->Ln(5);
-        $pdf->Cell(10,5,'');
-        $pdf->Cell(40,5,'Bahasa Indonesia',0,'J');
-        $pdf->Cell(5,5,':',0,'J');
-        $pdf->Cell(20,5,$siswa['bin4'],0,'J');
-        $pdf->Cell(40,5,'Bahasa Indonesia',0,'J');
-        $pdf->Cell(5,5,':',0,'J');
-        $pdf->Cell(20,5,$siswa['bin5'],0,'J');
+        $pdf->Cell(10,4,'');
+        $pdf->Cell(40,4,'Bahasa Indonesia',0,'J');
+        $pdf->Cell(5,4,':',0,'J');
+        $pdf->Cell(20,4,$siswa['bin4'],0,'J');
+        $pdf->Cell(40,4,'Bahasa Indonesia',0,'J');
+        $pdf->Cell(5,4,':',0,'J');
+        $pdf->Cell(20,4,$siswa['bin5'],0,'J');
 
 
         $pdf->Ln(5);
-        $pdf->Cell(10,5,'');
-        $pdf->Cell(40,5,'Matematika',0,'J');
-        $pdf->Cell(5,5,':',0,'J');
-        $pdf->Cell(20,5,$siswa['mtk4'],0,'J');
-        $pdf->Cell(40,5,'Matematika',0,'J');
-        $pdf->Cell(5,5,':',0,'J');
-        $pdf->Cell(20,5,$siswa['mtk5'],0,'J');
+        $pdf->Cell(10,4,'');
+        $pdf->Cell(40,4,'Matematika',0,'J');
+        $pdf->Cell(5,4,':',0,'J');
+        $pdf->Cell(20,4,$siswa['mtk4'],0,'J');
+        $pdf->Cell(40,4,'Matematika',0,'J');
+        $pdf->Cell(5,4,':',0,'J');
+        $pdf->Cell(20,4,$siswa['mtk5'],0,'J');
 
 
         $pdf->Ln(5);
-        $pdf->Cell(10,5,'');
-        $pdf->Cell(40,5,'Bahasa Inggris',0,'J');
-        $pdf->Cell(5,5,':',0,'J');
-        $pdf->Cell(20,5,$siswa['big4'],0,'J');
-        $pdf->Cell(40,5,'Bahasa Inggris',0,'J');
-        $pdf->Cell(5,5,':',0,'J');
-        $pdf->Cell(20,5,$siswa['big5'],0,'J');
+        $pdf->Cell(10,4,'');
+        $pdf->Cell(40,4,'Bahasa Inggris',0,'J');
+        $pdf->Cell(5,4,':',0,'J');
+        $pdf->Cell(20,4,$siswa['big4'],0,'J');
+        $pdf->Cell(40,4,'Bahasa Inggris',0,'J');
+        $pdf->Cell(5,4,':',0,'J');
+        $pdf->Cell(20,4,$siswa['big5'],0,'J');
    
 
         $pdf->Ln(5);
-        $pdf->Cell(10,5,'');
-        $pdf->Cell(40,5,'IPA',0,'J');
-        $pdf->Cell(5,5,':',0,'J');
-        $pdf->Cell(20,5,$siswa['ipa4'],0,'J');
-        $pdf->Cell(40,5,'IPA',0,'J');
-        $pdf->Cell(5,5,':',0,'J');
-        $pdf->Cell(20,5,$siswa['ipa5'],0,'J');
+        $pdf->Cell(10,4,'');
+        $pdf->Cell(40,4,'IPA',0,'J');
+        $pdf->Cell(5,4,':',0,'J');
+        $pdf->Cell(20,4,$siswa['ipa4'],0,'J');
+        $pdf->Cell(40,4,'IPA',0,'J');
+        $pdf->Cell(5,4,':',0,'J');
+        $pdf->Cell(20,4,$siswa['ipa5'],0,'J');
 
         $pdf->Ln(7);
-        $pdf->SetFont('Arial','BU',12);
+        $pdf->SetFont('Times','BU',12);
         $pdf->Cell(190,5,'Prestasi Non Akademik',0,0,'C');
 
         $pdf->Ln(7);
         $pdf->Cell(10,5,'');
-        $pdf->SetFont('Arial','',12);
-        $pdf->Cell(50,5,'Prestasi Tingkat',0,'J');
-        $pdf->Cell(5,5,':',0,'J');
-        $pdf->Cell(125,5,$tingkat,0,'J');
+        $pdf->SetFont('Times','',11);
+        $pdf->Cell(50,4,'Prestasi Tingkat',0,'J');
+        $pdf->Cell(5,4,':',0,'J');
+        $pdf->Cell(125,4,$tingkat,0,'J');
 
         $pdf->Ln(5);
-        $pdf->Cell(10,5,'');
-        $pdf->Cell(50,5,'Juara ',0,'J');
-        $pdf->Cell(5,5,':',0,'J');
-        $pdf->Cell(125,5,$juara,0,'J');
+        $pdf->Cell(10,4,'');
+        $pdf->Cell(50,4,'Juara ',0,'J');
+        $pdf->Cell(5,4,':',0,'J');
+        $pdf->Cell(125,4,$juara,0,'J');
 
         $pdf->Ln(5);
-        $pdf->Cell(10,5,'');
-        $pdf->Cell(50,5,'Bidang',0,'J');
-        $pdf->Cell(5,5,':',0,'J');
-        $pdf->Cell(125,5,$bidang,0,'J');
+        $pdf->Cell(10,4,'');
+        $pdf->Cell(50,4,'Bidang',0,'J');
+        $pdf->Cell(5,4,':',0,'J');
+        $pdf->Cell(125,4,$bidang,0,'J');
 
         $pdf->Ln(5);
-        $pdf->Cell(10,5,'');
-        $pdf->Cell(50,5,'Nama Kegiatan',0,'J');
-        $pdf->Cell(5,5,':',0,'J');
-        $pdf->MultiCell(125,5,$prestasi,0,'J');
+        $pdf->Cell(10,4,'');
+        $pdf->Cell(50,4,'Nama Kegiatan',0,'J');
+        $pdf->Cell(5,4,':',0,'J');
+        $pdf->MultiCell(125,4,$prestasi,0,'J');
        
         
 
-        $pdf->Ln(10);
-        $pdf->SetFont('Arial','',12);
+        $pdf->Ln(5);
+        $pdf->SetFont('Times','',11);
         $pdf->Multicell(190,5,'Menyatakan bahwa data di atas adalah benar dan dapat dipertanggungjawabkan. Jika dikemudian hari ditemukan adanya kecurangan saya bersedia menerima konsekuensi termasuk dinyatakan gugur dari seleksi penerimaan peserta didik baru.',0,'J');
 
-        $pdf->Ln(10);
-        $pdf->SetFont('Arial','',10);
+        $pdf->Ln(13);
+        $pdf->SetFont('Times','',10);
         $pdf->Cell(80,3.5,'a/n. '.$siswa['nama'], 0, 0, 'C');
         $pdf->Cell(30,3.5,'', 0, 0, 'C');
         $pdf->Cell(80,3.5,'Tanah Laut, '.date('d M Y'), 0, 0, 'C');
-        $pdf->Image('./uploads/foto/'.$siswa['foto'],115,245,20, 30);
+        $pdf->Image('./uploads/foto/'.$siswa['foto'],115,227,20, 30);
         
         $pdf->Ln(3.5);
         $pdf->Cell(80,3.5,'menyetujui data di atas', 0, 0, 'C');
@@ -441,13 +443,24 @@ class Siswa extends CI_Controller {
         $pdf->Cell(30,3.5,'', 0, 0, 'C');
         $pdf->Cell(80,3.5,$siswa['nama'], 0, 0, 'C');
 
+        // Position at 1.5 cm from bottom
+        $pdf->SetY(-31);
+        // Arial italic 8
+        $pdf->SetFont('Arial','I',8);
+        // Text color in gray
+        $pdf->SetTextColor(128);
+        // Page number
+        $pdf->Cell(0,10,'File Bukti Pendaftaran Peserta Didik Baru. '. $siswa['nama']);
+
         if ($status == null) {
             # code...
             $pdf->Output();
             $pdf->Output('./buktidaftar/'.$siswa['nisn'].'.pdf', 'F');
         } else {
             # code...
-            $pdf->Output('./buktidaftar/'.$siswa['nisn'].'.pdf', 'F');            
+            $pdf->Output('./buktidaftar/'.$siswa['nisn'].'.pdf', 'F');
+            redirect('siswa/kirimbuktidaftar','refresh');
+                      
         }
         
     }
@@ -469,8 +482,8 @@ class Siswa extends CI_Controller {
             $config['smtp_host']= "ssl://smtp.gmail.com";//pengaturan smtp
             $config['smtp_port']= "465";
             $config['smtp_timeout']= "400";
-            $config['smtp_user']= ""; // isi dengan email kamu
-            $config['smtp_pass']= ""; // isi dengan password kamu
+            $config['smtp_user']= "pasarjorong@gmail.com"; // isi dengan email kamu
+            $config['smtp_pass']= "putrakembar2"; // isi dengan password kamu
             $config['crlf']="\r\n";
             $config['newline']="\r\n";
             $config['wordwrap'] = TRUE;
@@ -492,12 +505,14 @@ class Siswa extends CI_Controller {
                 $this->session->set_flashdata('jenis', 'alert-success');
                 redirect('siswa','refresh');
                 
-            } 
+            } else {
+                $this->session->set_flashdata('pesan', '<strong>Maaf..</strong> Email gagal dikirim.');
+                $this->session->set_flashdata('jenis', 'alert-danger');
+                redirect('siswa','refresh');
+            }
+
         } else {
-            $this->cetakbuktidaftar('belum');
-            $this->session->set_flashdata('pesan', '<strong>Gagal..</strong> file tidak ditemukan, silahkan ulangi.');
-            $this->session->set_flashdata('jenis', 'alert-warning');
-            
+            $this->cetakbuktidaftar('belum');         
             redirect('siswa','refresh');
             
         }

@@ -9,7 +9,7 @@
         <?php endif;?>
 
         <?php if ($siswa['benar'] != '' && $siswa['email'] !=''): ?>
-          <li><a href="<?= base_url('siswa/kirimbuktidaftar');?>"><i class="icon-envelope"></i><span>Kirim bukti ke email</span> </a> </li>
+          <li><a href="<?= base_url('siswa/kirimbuktidaftar');?>"><i class="icon-envelope"></i><span>Simpan bukti ke email</span> </a> </li>
         <?php endif;?>
 
         <li><a href="<?= base_url('auth/logout');?>"><i class="icon-signout"></i><span>Keluar</span> </a> </li>
