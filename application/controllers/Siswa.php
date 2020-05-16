@@ -162,7 +162,7 @@ class Siswa extends CI_Controller {
 
     function cetakbukti()
     {
-        $siswa = $this->db->get_where('tbl_registrasi', ['nisn' => '0000000007'])->row_array();
+        $siswa = $this->db->get_where('tbl_registrasi', ['nisn' => $this->session->userdata('nisn')])->row_array();
         if ($siswa['jk'] == '1') {
             $jk = 'Laki - laki';
         } else {
