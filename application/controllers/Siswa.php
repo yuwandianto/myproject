@@ -83,6 +83,7 @@ class Siswa extends CI_Controller {
                 'kecamatan'        => $this->input->post('kecamatan', true),
                 'sekolah_asal'     => $this->input->post('sekolah_asal', true),
                 'tahun_lulus'      => $this->input->post('tahun_lulus', true),
+                'email'            => $this->input->post('email', true),
                 'bin1'             => $this->input->post('bin1', true),
                 'big1'             => $this->input->post('big1', true),
                 'mtk1'             => $this->input->post('mtk1', true),
@@ -160,7 +161,7 @@ class Siswa extends CI_Controller {
 
     }
 
-    function cetakbukti()
+    function cetakbuktidaftar($status = null)
     {
         $siswa = $this->db->get_where('tbl_registrasi', ['nisn' => $this->session->userdata('nisn')])->row_array();
         if ($siswa['jk'] == '1') {
@@ -440,9 +441,69 @@ class Siswa extends CI_Controller {
         $pdf->Cell(30,3.5,'', 0, 0, 'C');
         $pdf->Cell(80,3.5,$siswa['nama'], 0, 0, 'C');
 
+        if ($status == null) {
+            # code...
+            $pdf->Output();
+            $pdf->Output('./buktidaftar/'.$siswa['nisn'].'.pdf', 'F');
+        } else {
+            # code...
+            $pdf->Output('./buktidaftar/'.$siswa['nisn'].'.pdf', 'F');            
+        }
+        
+    }
 
-        $pdf->Output();
-        $pdf->Output('./buktidaftar/'.$siswa['nisn'].'.pdf', 'F');
+    function kirimbuktidaftar()
+    {
+        $content = file_exists('./buktidaftar/'.$this->session->userdata('nisn').'.pdf');
+        $file = base_url().'./buktidaftar/'.$this->session->userdata('nisn').'.pdf';
+
+
+        if ($content == 1) {
+            $this->load->library('email');
+
+            $config = array();
+            $config['charset'] = 'utf-8';
+            $config['useragent'] = 'Codeigniter';
+            $config['protocol']= "smtp";
+            $config['mailtype']= "html";
+            $config['smtp_host']= "ssl://smtp.gmail.com";//pengaturan smtp
+            $config['smtp_port']= "465";
+            $config['smtp_timeout']= "400";
+            $config['smtp_user']= ""; // isi dengan email kamu
+            $config['smtp_pass']= ""; // isi dengan password kamu
+            $config['crlf']="\r\n";
+            $config['newline']="\r\n";
+            $config['wordwrap'] = TRUE;
+            
+            //memanggil library email dan set konfigurasi untuk pengiriman email
+            $this->email->initialize($config);
+            
+            //konfigurasi pengiriman
+            $this->email->from('noreplay@yuwan.web.id');
+            $this->email->to('yuwandianto@gmail.com');
+            $this->email->subject("Bukti Pendaftaran");
+            $this->email->message(
+            "<h3>Berikut ini adalah bukti pendaftaran anda.</h3>");
+            
+            $this->email->attach($file);
+
+            if ($this->email->send()) {
+                $this->session->set_flashdata('pesan', '<strong>Alhamdulillah..</strong> Email berhasil dikirim.');
+                $this->session->set_flashdata('jenis', 'alert-success');
+                redirect('siswa','refresh');
+                
+            } 
+        } else {
+            $this->cetakbuktidaftar('belum');
+            $this->session->set_flashdata('pesan', '<strong>Gagal..</strong> file tidak ditemukan, silahkan ulangi.');
+            $this->session->set_flashdata('jenis', 'alert-warning');
+            
+            redirect('siswa','refresh');
+            
+        }
+        
+
+        
     }
 
 }

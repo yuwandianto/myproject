@@ -203,7 +203,14 @@
                     <div class="control-group">											
 											<label class="control-label" for="tahun_lulus">Tahun Lulus</label>
 											<div class="controls">
-												<input type="number" class="span3" name="tahun_lulus" id="tahun_lulus" value="<?= $siswa['tahun_lulus'];?>" required placeholder="Tahun lulus jenjang sebelumnya">
+												<input type="number" class="span1" name="tahun_lulus" id="tahun_lulus" value="<?= $siswa['tahun_lulus'];?>" required placeholder="Tahun lulus jenjang sebelumnya">
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+
+                    <div class="control-group">											
+											<label class="control-label" for="email">Alamat Email</label>
+											<div class="controls">
+												<input type="email" class="span4" name="email" id="email" value="<?= $siswa['email'];?>" required>
 											</div> <!-- /controls -->				
 										</div> <!-- /control-group -->
                     <hr>
