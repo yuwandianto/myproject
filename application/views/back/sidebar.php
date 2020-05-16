@@ -52,6 +52,9 @@ $menu = $this->uri->segment(2);; ?>
         <a class="collapse-item <?php if ($menu == 'berita') {
                                   echo 'active';
                                 } ?>" href="<?= base_url('home/berita'); ?>">Berita dan Pengumuman</a>
+        <a class="collapse-item <?php if ($menu == 'jurusan') {
+                                  echo 'active';
+                                } ?>" href="<?= base_url('home/jurusan'); ?>">Jurusan</a>
 
 
       </div>
