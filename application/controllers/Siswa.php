@@ -160,6 +160,7 @@ class Siswa extends CI_Controller {
         } 
 
     }
+    
 
     function cetakbuktidaftar($status = null)
     {
@@ -414,8 +415,6 @@ class Siswa extends CI_Controller {
         $pdf->Cell(50,4,'Nama Kegiatan',0,'J');
         $pdf->Cell(5,4,':',0,'J');
         $pdf->MultiCell(125,4,$prestasi,0,'J');
-       
-        
 
         $pdf->Ln(5);
         $pdf->SetFont('Times','',11);
