@@ -108,7 +108,7 @@ class Slide extends CI_Controller
                 }
             }
         } else {
-            echo "Gagal";
+            echo "Gagal hapus";
         }
     }
 

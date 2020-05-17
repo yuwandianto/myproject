@@ -471,6 +471,13 @@ class Siswa extends CI_Controller {
 
 
         if ($content == 1) {
+
+            $sekolah = $this->db->get('tbl_sekolah',1)->row_array();
+            $e = $sekolah['kirim_mail'];
+            $pe = base64_decode($sekolah['pass_mail']);
+
+            $sis = $this->db->get_where('tbl_registrasi', ['nisn' => $this->session->userdata('nisn')])->row_array();
+            
             $this->load->library('email');
 
             $config = array();
@@ -478,11 +485,11 @@ class Siswa extends CI_Controller {
             $config['useragent'] = 'Codeigniter';
             $config['protocol']= "smtp";
             $config['mailtype']= "html";
-            $config['smtp_host']= "ssl://smtp.gmail.com";//pengaturan smtp
+            $config['smtp_host']= "ssl://smtp.gmail.com";
             $config['smtp_port']= "465";
             $config['smtp_timeout']= "400";
-            $config['smtp_user']= "pasarjorong@gmail.com"; // isi dengan email kamu
-            $config['smtp_pass']= "putrakembar2"; // isi dengan password kamu
+            $config['smtp_user']= $e;
+            $config['smtp_pass']= $pe;
             $config['crlf']="\r\n";
             $config['newline']="\r\n";
             $config['wordwrap'] = TRUE;
@@ -491,18 +498,29 @@ class Siswa extends CI_Controller {
             $this->email->initialize($config);
             
             //konfigurasi pengiriman
-            $this->email->from('noreplay@yuwan.web.id');
-            $this->email->to('yuwandianto@gmail.com');
+            $this->email->from($e);
+            $this->email->to($sis['email']);
             $this->email->subject("Bukti Pendaftaran");
-            $this->email->message(
-            "<h3>Berikut ini adalah bukti pendaftaran anda.</h3>");
+            $this->email->message('Terimakasih telah menyelesaikan proses pendaftaran peserta didik baru di '.$sekolah['nama_sekolah'].'. Silahkan simpan bukti pendaftaran berikut sebagai bukti bahwa anda telah melakukan pendaftaran secara online. Untuk informasi lebih lanjut silahkan hubungi nomor tlp yang tertera di '.site_url());
             
             $this->email->attach($file);
 
             if ($this->email->send()) {
+
+                require('./vendor/autoload.php');
+
+                $basic  = new \Nexmo\Client\Credentials\Basic('ee72a594', '2OcbH7zApiO8dv9C');
+                $client = new \Nexmo\Client($basic);
+
+                $message = $client->message()->send([
+                    'to' => $sis['nomor_hp'],
+                    'from' => $sekolah['nama_sekolah'],
+                    'text' => 'Ini adalah pesan pemberitahuan. Kami telah mengirimkan bukti pendaftaran ke email yang didaftarkan di '.$sekolah['nama_sekolah'],
+                ]);
+
                 $this->session->set_flashdata('pesan', '<strong>Alhamdulillah..</strong> Email berhasil dikirim.');
                 $this->session->set_flashdata('jenis', 'alert-success');
-                redirect('siswa','refresh');
+                //redirect('siswa','refresh');
                 
             } else {
                 $this->session->set_flashdata('pesan', '<strong>Maaf..</strong> Email gagal dikirim.');
