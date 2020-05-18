@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <h3>Halaman Tambah SLide</h3>
+    <h3>Halaman Data Sekolah</h3>
     <hr>
 
     <?php echo form_open_multipart('Slide/proses_edit_slide') ?>
