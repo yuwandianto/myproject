@@ -166,9 +166,9 @@ class M_admin_home extends CI_Model
     public function proses_ubah_pengguna()
     {
         $data = [
-            "xemail" = $this->input->post('xemail', TRUE),
-            "xpass" = $this->input->post('xpass', TRUE),
-            "nama" = $this->input->post('nama', TRUE),
+            "xemail" => $this->input->post('xemail', TRUE),
+            "xpass" => $this->input->post('xpass', TRUE),
+            "nama" => $this->input->post('nama', TRUE),
         ];
         $this->db->where('id', $this->input->post('id'));
         $this->db->update('tbl_pengguna', $data);

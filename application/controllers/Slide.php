@@ -71,7 +71,7 @@ class Slide extends CI_Controller
         $this->load->view('back/footer');
     }
 
-    public function proses_edit_slide()
+    public function proses_edit_slide_lama()
     {
         $id = $this->input->post('id');
 
@@ -112,9 +112,41 @@ class Slide extends CI_Controller
         }
     }
 
+    public function proses_edit_slide()
+    {
+        $id = $this->input->post('id');
+        $config['upload_path']          = './assets/images/';
+        $config['allowed_types']        = 'gif|jpg|JPG|png';
+        $config['max_size']             = 10000;
+        $config['max_width']            = 5000;
+        $config['max_height']           = 5000;
+
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload('userfile')) {
+            echo "Gagal Upload";
+        } else {
+            $gambar = $this->upload->data();
+            $gambar = $gambar['file_name'];
+            $judul = $this->input->post('judul', true);
+            $text = $this->input->post('text', true);
+            $data = array(
+                'judul'    => $judul,
+                'text'    => $text,
+                'gambar' => $gambar
+            );
+            $this->db->where('id', $id);
+            
+            $this->db->update('tbl_slide', $data);
+            redirect('Slide/slide');
+        }
+    }
+
     public function hapus_slide($id)
     {
         $this->M_slide->hapus_slide($id);
         redirect('Slide/slide');
     }
+
+    
 }
