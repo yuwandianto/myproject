@@ -25,7 +25,7 @@ class Home extends CI_Controller
 	{
 		$data['jadwal'] = $this->M_admin_home->tampildata();
 		// $data['judul'] = $this->M_admin_home->tampildata();
-		$data['judul1'] = $this->M_admin_home->tampildata1();
+		$data['tbl_jadwal'] = $this->M_admin_home->tbl_jadwal();
 		$data['title'] = 'Dashboard';
 		$this->load->view('back/header', $data);
 		$this->load->view('back/sidebar');
@@ -34,49 +34,38 @@ class Home extends CI_Controller
 		$this->load->view('back/footer');
 	}
 
-	public function edit_data($id)
+	public function proses_edit_jadwal($id)
 	{
-		$data['jadwal'] = $this->M_admin_home->ambil_id($id);
-		$data['title'] = 'Dashboard';
-		$this->load->view('back/header', $data);
-		$this->load->view('back/sidebar');
-		$this->load->view('back/topbar');
-		$this->load->view('back/jadwal/edit', $data);
-		$this->load->view('back/footer');
-	}
-
-	public function proses_edit()
-	{
-		$this->M_admin_home->proses_edit_data();
+		$this->M_admin_home->proses_edit_jadwal($id);
+		$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
+		Data berhasil <b>Diubah</b>!
+	  </div>');
 		redirect('home/dashboard');
 	}
 
 	public function hapus_data($id)
 	{
 		$this->M_admin_home->hapus_data($id);
+		$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
+		Data berhasil <b>Diubah</b>!
+	  </div>');
 		redirect('home/dashboard');
 	}
 
 	public function hapus_tabel($id)
 	{
 		$this->M_admin_home->hapus_tabel($id);
+		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+		Data berhasil <b>Dihapus</b>!
+	  </div>');
 		redirect('home/dashboard');
 	}
-
-	public function edit_tabel($id)
-	{
-		$data['judul'] = $this->M_admin_home->ambil_id_tabel($id);
-		$data['title'] = 'Dashboard';
-		$this->load->view('back/header', $data);
-		$this->load->view('back/sidebar');
-		$this->load->view('back/topbar');
-		$this->load->view('back/jadwal/edit_tabel', $data);
-		$this->load->view('back/footer');
-	}
-
 	public function proses_edit_tabel()
 	{
 		$this->M_admin_home->proses_edit_tabel();
+		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+		Data berhasil <b>Diubah</b>!
+	  </div>');
 		redirect('home/dashboard');
 	}
 
@@ -93,6 +82,9 @@ class Home extends CI_Controller
 	public function proses_tambah_tabel()
 	{
 		$this->M_admin_home->proses_tambah_tabel();
+		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+		Data berhasil <b>Ditambah</b>!
+	  </div>');
 		redirect('home/dashboard');
 	}
 
@@ -109,28 +101,23 @@ class Home extends CI_Controller
 		$this->load->view('back/footer');
 	}
 
-	public function edit_berita()
-	{
-		$data['berita'] = $this->M_admin_home->tampil_data_berita();
-		$data['title'] = 'Edit Berita';
-		$this->load->view('back/header', $data);
-		$this->load->view('back/sidebar');
-		$this->load->view('back/topbar');
-		$this->load->view('back/berita/edit', $data);
-		$this->load->view('back/footer');
-	}
-
 	public function proses_edit_berita()
 	{
 		$this->M_admin_home->proses_edit_berita();
+		$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
+		Data berita berhasil <b>Diubah</b>!
+	  </div>');
 		redirect('home/berita');
 	}
 
-	public function hapus_berita($id)
-	{
-		$this->M_admin_home->proses_hapus_berita($id);
-		redirect('home/berita');
-	}
+	// public function hapus_berita($id)
+	// {
+	// 	$this->M_admin_home->proses_hapus_berita($id);
+	// 	$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
+	// 	Data berita berhasil <b>Dihapus</b>!
+	//   </div>');
+	// 	redirect('home/berita');
+	// }
 
 	public function tambah_isib()
 	{
@@ -145,6 +132,9 @@ class Home extends CI_Controller
 	public function proses_tambah_isib()
 	{
 		$this->M_admin_home->proses_tambah_isib();
+		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+		Data berhasil <b>Ditambah</b>!
+	  </div>');
 		redirect('Home/berita');
 	}
 
@@ -162,12 +152,18 @@ class Home extends CI_Controller
 	public function proses_edit_isib()
 	{
 		$this->M_admin_home->proses_edit_isib();
+		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+		Data berhasil <b>Diubah</b>!
+	  </div>');
 		redirect('home/berita');
 	}
 
 	public function hapus_isib($id)
 	{
 		$this->M_admin_home->hapus_isib($id);
+		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+		Data berhasil <b>Dihapus</b>!
+	  </div>');
 		redirect('home/berita');
 	}
 
@@ -191,5 +187,59 @@ class Home extends CI_Controller
 		$this->load->view('back/topbar');
 		$this->load->view('back/sekolah/dashboard', $data);
 		$this->load->view('back/footer');
+	}
+
+	public function proses_edit_sekolah()
+	{
+		$id = $this->input->post('id');
+		$config['upload_path']          = './assets/images';
+		$config['allowed_types']        = 'gif|jpg|png';
+		$config['max_size']             = 10000;
+		$config['max_width']            = 10000;
+		$config['max_height']           = 10000;
+
+		$this->load->library('upload', $config);
+		// Jika tidak ada gambar
+		if (!$this->upload->do_upload('userfile')) {
+			$nama_sekolah = $this->input->post('nama_sekolah', TRUE);
+			$alamat 		= $this->input->post('alamat', TRUE);
+			$email_sekolah 	= $this->input->post('email_sekolah', TRUE);
+			$tlp_sekolah	= $this->input->post('tlp_sekolah', TRUE);
+
+			$data = array(
+				'nama_sekolah' => $nama_sekolah,
+				'alamat' => $alamat,
+				'email_sekolah' => $email_sekolah,
+				'tlp_sekolah' => $tlp_sekolah,
+			);
+			$this->db->where('id', $id);
+			$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
+           Data berhasil <b>Diubah</b>!
+          </div>');
+			$this->db->update('tbl_sekolah', $data);
+			redirect('Home/sekolah');
+			// jika ada gambar
+		} else {
+			$logo = $this->upload->data();
+			$logo = $logo['file_name'];
+			$nama_sekolah = $this->input->post('nama_sekolah', TRUE);
+			$alamat 		= $this->input->post('alamat', TRUE);
+			$email_sekolah 	= $this->input->post('email_sekolah', TRUE);
+			$tlp_sekolah	= $this->input->post('tlp_sekolah', TRUE);
+
+			$data = array(
+				'nama_sekolah' => $nama_sekolah,
+				'alamat' => $alamat,
+				'email_sekolah' => $email_sekolah,
+				'tlp_sekolah' => $tlp_sekolah,
+				'logo' => $logo,
+			);
+			$this->db->where('id', $id);
+			$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
+           Data berhasil <b>Diubah</b>!
+          </div>');
+			$this->db->update('tbl_sekolah', $data);
+			redirect('Home/sekolah');
+		}
 	}
 }

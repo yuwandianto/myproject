@@ -2,9 +2,15 @@
     <h3>Halaman Data Sekolah</h3>
     <hr>
 
-    <?php echo form_open_multipart('Slide/proses_edit_slide') ?>
+    <?php echo form_open_multipart('Home/proses_edit_sekolah') ?>
 
     <input type="hidden" name="id" value="<?php echo $sekolah['id']; ?>">
+
+    <div class="form-group row">
+        <div class="col-sm-9">
+            <?php echo $this->session->flashdata('pesan'); ?>
+        </div>
+    </div>
 
     <div class="form-group row">
         <label for="nama_sekolah" class="col-sm-2 col-form-label">Nama Sekolah</label>
@@ -48,7 +54,7 @@
 
 
     <div class="form-group row">
-        <label for="berita" class="col-sm-2 col-form-label"><a href="<?php echo base_url('Slide/slide'); ?>" class="btn btn-sm btn-success">Kembali</a></label>
+        <label for="berita" class="col-sm-2 col-form-label"></label>
         <div class="col-sm-7">
             <button class="btn btn-primary">Simpan</button>
         </div>

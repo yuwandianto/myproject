@@ -16,7 +16,7 @@ class M_admin_home extends CI_Model
     {
         return $this->db->get('jadwal')->row_array();
     }
-    public function tampildata1()
+    public function tbl_jadwal()
     {
         return $this->db->get('tabel_jadwal')->result_array();
     }
@@ -33,7 +33,7 @@ class M_admin_home extends CI_Model
     }
 
 
-    public function proses_edit_data()
+    public function proses_edit_jadwal()
     {
         $data = [
             "nama_jadwal" => $this->input->post('nama_jadwal', TRUE),

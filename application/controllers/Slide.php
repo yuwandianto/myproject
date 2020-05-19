@@ -11,7 +11,7 @@ class Slide extends CI_Controller
     }
 
 
-    public function Slide()
+    public function slide()
     {
         $data['slide'] = $this->M_slide->tampil_data();
         $data['title'] = 'Setting Slide ';
@@ -56,6 +56,9 @@ class Slide extends CI_Controller
                 'gambar' => $gambar
             );
             $this->db->insert('tbl_slide', $data);
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
+           Data berhasil <b>Ditambah</b>!
+          </div>');
             redirect('Slide/slide');
         }
     }
@@ -71,48 +74,48 @@ class Slide extends CI_Controller
         $this->load->view('back/footer');
     }
 
-    public function proses_edit_slide_lama()
-    {
-        $id = $this->input->post('id');
+    // public function proses_edit_slide_lama()
+    // {
+    //     $id = $this->input->post('id');
 
-        $data = $this->M_slide->ambil_id_slide($id);
-        $nama = './assets/images/' . $data['gambar'];
+    //     $data = $this->M_slide->ambil_id_slide($id);
+    //     $nama = './assets/images/' . $data['gambar'];
 
-        if (is_readable($nama) && unlink($nama)) {
-            $config['upload_path']          = './uploads/';
-            $config['allowed_types']        = 'png|jpg|gif';
-            $config['max_size']             = 2048;
-            $config['max_width']            = 40000;
-            $config['max_height']           = 40000;
+    //     if (is_readable($nama) && unlink($nama)) {
+    //         $config['upload_path']          = './uploads/';
+    //         $config['allowed_types']        = 'png|jpg|gif';
+    //         $config['max_size']             = 2048;
+    //         $config['max_width']            = 40000;
+    //         $config['max_height']           = 40000;
 
-            $this->load->library('upload', $config);
+    //         $this->load->library('upload', $config);
 
-            if (!$this->upload->do_upload('userfile')) {
-                $error = array('error' => $this->upload->display_errors());
-                $this->load->view('back/slide/slide', $error);
-            } else {
-                $upload_data = $this->upload->data();
-                $name = $upload_data['file_name'];
+    //         if (!$this->upload->do_upload('userfile')) {
+    //             $error = array('error' => $this->upload->display_errors());
+    //             $this->load->view('back/slide/slide', $error);
+    //         } else {
+    //             $upload_data = $this->upload->data();
+    //             $name = $upload_data['file_name'];
 
-                $data = array(
-                    'judul'    => $this->input->post('judul'),
-                    'text'    => $this->input->post('text'),
-                    'gambar'    => $name
-                );
-                $update = $this->M_slide->updateFile($id, $data);
+    //             $data = array(
+    //                 'judul'    => $this->input->post('judul'),
+    //                 'text'    => $this->input->post('text'),
+    //                 'gambar'    => $name
+    //             );
+    //             $update = $this->M_slide->updateFile($id, $data);
 
-                if ($update) {
-                    redirect('Slide');
-                } else {
-                    echo "Gagal";
-                }
-            }
-        } else {
-            echo "Gagal hapus";
-        }
-    }
+    //             if ($update) {
+    //                 redirect('Slide');
+    //             } else {
+    //                 echo "Gagal";
+    //             }
+    //         }
+    //     } else {
+    //         echo "Gagal hapus";
+    //     }
+    // }
 
-    public function proses_edit_slide()
+    public function proses_edit_slide($id)
     {
         $id = $this->input->post('id');
         $config['upload_path']          = './assets/images/';
@@ -124,7 +127,18 @@ class Slide extends CI_Controller
         $this->load->library('upload', $config);
 
         if (!$this->upload->do_upload('userfile')) {
-            echo "Gagal Upload";
+            $judul = $this->input->post('judul', true);
+            $text = $this->input->post('text', true);
+            $data = array(
+                'judul'    => $judul,
+                'text'    => $text
+            );
+            $this->db->where('id', $id);
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
+            Data berhasil <b>Diubah</b>!
+           </div>');
+            $this->db->update('tbl_slide', $data);
+            redirect('Slide/slide');
         } else {
             $gambar = $this->upload->data();
             $gambar = $gambar['file_name'];
@@ -136,7 +150,9 @@ class Slide extends CI_Controller
                 'gambar' => $gambar
             );
             $this->db->where('id', $id);
-            
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
+            Data berhasil <b>Diubah</b>!
+           </div>');
             $this->db->update('tbl_slide', $data);
             redirect('Slide/slide');
         }
@@ -145,8 +161,9 @@ class Slide extends CI_Controller
     public function hapus_slide($id)
     {
         $this->M_slide->hapus_slide($id);
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
+           Data berhasil <b>Dihapus</b>!
+          </div>');
         redirect('Slide/slide');
     }
-
-    
 }

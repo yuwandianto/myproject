@@ -3,7 +3,6 @@
     <!-- Page Heading -->
 
 
-    <h1 class="h3 mb-4 text-gray-800"><?php echo $title; ?></h1>
     <!-- DataTables -->
 
 
@@ -36,7 +35,7 @@
                                 <td>
                                     <button class="badge badge-primary mb-3" data-toggle="modal" data-target="#editdata_kelas<?php echo $j['id']; ?>">Edit</button>
 
-                                    <a href="<?= base_url(); ?>Jurusan/hapus/<?= $j['id']; ?>" class="badge badge-danger">Hapus</a>
+                                    <a href="<?= base_url(); ?>Jurusan/hapus/<?= $j['id']; ?>" class="badge badge-danger" onclick="return confirm ('Apakah anda yakin ?  Data akan terhapus permanent dari sistem!');">Hapus</a>
 
                                 </td>
                             </tr>
