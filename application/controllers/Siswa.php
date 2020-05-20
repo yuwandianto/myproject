@@ -194,6 +194,13 @@ class Siswa extends CI_Controller {
         } else {
             $prestasi = '-';
         }
+
+        if ($siswa['foto'] != '') {
+            $foto = $siswa['foto'];
+        } else {
+            $foto = 'default.png';
+        }
+        
         
 
         require(APPPATH.'/libraries/fpdf/fpdf.php');
@@ -425,7 +432,7 @@ class Siswa extends CI_Controller {
         $pdf->Cell(80,3.5,'a/n. '.$siswa['nama'], 0, 0, 'C');
         $pdf->Cell(30,3.5,'', 0, 0, 'C');
         $pdf->Cell(80,3.5,'Tanah Laut, '.date('d M Y'), 0, 0, 'C');
-        $pdf->Image('./uploads/foto/'.$siswa['foto'],115,227,20, 30);
+        $pdf->Image('./uploads/foto/'.$foto,115,227,20, 30);
         
         $pdf->Ln(3.5);
         $pdf->Cell(80,3.5,'menyetujui data di atas', 0, 0, 'C');
@@ -507,20 +514,9 @@ class Siswa extends CI_Controller {
 
             if ($this->email->send()) {
 
-                require('./vendor/autoload.php');
-
-                $basic  = new \Nexmo\Client\Credentials\Basic('ee72a594', '2OcbH7zApiO8dv9C');
-                $client = new \Nexmo\Client($basic);
-
-                $message = $client->message()->send([
-                    'to' => $sis['nomor_hp'],
-                    'from' => $sekolah['nama_sekolah'],
-                    'text' => 'Ini adalah pesan pemberitahuan. Kami telah mengirimkan bukti pendaftaran ke email yang didaftarkan di '.$sekolah['nama_sekolah'],
-                ]);
-
                 $this->session->set_flashdata('pesan', '<strong>Alhamdulillah..</strong> Email berhasil dikirim.');
                 $this->session->set_flashdata('jenis', 'alert-success');
-                //redirect('siswa','refresh');
+                redirect('siswa','refresh');
                 
             } else {
                 $this->session->set_flashdata('pesan', '<strong>Maaf..</strong> Email gagal dikirim.');
