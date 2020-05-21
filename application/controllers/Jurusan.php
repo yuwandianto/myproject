@@ -16,9 +16,9 @@ class Jurusan extends CI_Controller
         redirect('Home/jurusan');
     }
 
-    public function proses_edit($id)
+    public function proses_edit()
     {
-        $this->M_jurusan->proses_edit($id);
+        $this->M_jurusan->proses_edit($this->input->post('id'));
         redirect('Home/jurusan');
     }
 
