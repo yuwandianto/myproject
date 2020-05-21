@@ -115,7 +115,7 @@ class Slide extends CI_Controller
     //     }
     // }
 
-    public function proses_edit_slide($id)
+    public function proses_edit_slide()
     {
         $id = $this->input->post('id');
         $config['upload_path']          = './assets/images/';

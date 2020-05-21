@@ -23,4 +23,9 @@ class M_dashboard extends Ci_Model
     {
         return $this->db->get('tbl_slide')->result_array();
     }
+
+    public function pdf()
+    {
+        return $this->db->get('tbl_panduan')->result();
+    }
 }

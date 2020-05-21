@@ -6,13 +6,18 @@
         <ol class="carousel-indicators">
             <!-- Menetukan jumlah slidenya sekaligus lopping slider indikator -->
             <?php for ($i = 0; $i < $jml_sld; $i++) : ?>
-                <li data-target="#carouselExampleControls" data-slide-to="<?= $i; ?>" class="<?php if ($i == '0') { echo 'active';} ?>"></li>
+                <li data-target="#carouselExampleControls" data-slide-to="<?= $i; ?>" class="<?php if ($i == '0') {
+                                                                                                    echo 'active';
+                                                                                                } ?>"></li>
             <?php endfor; ?>
         </ol>
         <div class="carousel-inner">
             <!-- Looping data dari database -->
-            <?php $no = 1; foreach ($new_sld as $sl) : ?>
-                <div class="carousel-item <?php if ($no++ == '1') { echo 'active';  } ?>">
+            <?php $no = 1;
+            foreach ($new_sld as $sl) : ?>
+                <div class="carousel-item <?php if ($no++ == '1') {
+                                                echo 'active';
+                                            } ?>">
                     <div class="home-center">
                         <div class="home-desc-center">
                             <div class="container-fluid">
@@ -68,7 +73,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="client-images">
-                        <a href="<?= base_url(); ?>panduan">
+                        <a href="<?php echo base_url('Panduan'); ?>">
                             <img src="<?= base_url('assets/templates/front/'); ?>img/ICO4.svg" alt="logo-img" class="mx-auto img-fluid d-block">
                         </a>
                     </div>
